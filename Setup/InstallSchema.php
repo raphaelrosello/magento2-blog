@@ -81,7 +81,7 @@ class InstallSchema implements InstallSchemaInterface
                     [],
                     'Created At')
                 ->addColumn('updated_at',
-                    Table::TYPE_TEXT,
+                    Table::TYPE_TIMESTAMP,
                     null,
                     [],
                     'Updated At');
@@ -175,13 +175,41 @@ class InstallSchema implements InstallSchemaInterface
                     1,
                     [],
                     'Enabled')
-                ->addColumn('parent_id', Table::TYPE_INTEGER, null, [], 'Category Parent Id')
-                ->addColumn('path', Table::TYPE_TEXT, 255, [], 'Path')
-                ->addColumn('position', Table::TYPE_INTEGER, null, [], 'Position')
-                ->addColumn('level', Table::TYPE_INTEGER, null, [], 'Level')
-                ->addColumn('children_count', Table::TYPE_INTEGER, null, [], 'Children Count')
-                ->addColumn('updated_at', Table::TYPE_TIMESTAMP, null, [], 'Updated At')
-                ->addColumn('created_at', Table::TYPE_TIMESTAMP, null, [], 'Created At');
+                ->addColumn('parent_id',
+                    Table::TYPE_INTEGER,
+                    null,
+                    [],
+                    'Category Parent Id')
+                ->addColumn('path',
+                    Table::TYPE_TEXT,
+                    255,
+                    [],
+                    'Path')
+                ->addColumn('position',
+                    Table::TYPE_INTEGER,
+                    null,
+                    [],
+                    'Position')
+                ->addColumn('level',
+                    Table::TYPE_INTEGER,
+                    null,
+                    [],
+                    'Level')
+                ->addColumn('children_count',
+                    Table::TYPE_INTEGER,
+                    null,
+                    [],
+                    'Children Count')
+                ->addColumn('updated_at',
+                    Table::TYPE_TIMESTAMP,
+                    null,
+                    [],
+                    'Updated At')
+                ->addColumn('created_at',
+                    Table::TYPE_TIMESTAMP,
+                    null,
+                    [],
+                    'Created At');
         }
 
         $installer->getConnection()->createTable($table);

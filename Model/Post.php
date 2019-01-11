@@ -50,6 +50,9 @@ class Post extends AbstractModel implements PostInterface, IdentityInterface
         return [self::STATUS_ENABLED => __('Enabled'), self::STATUS_DISABLED => __('Disabled')];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function getId()
     {
         return $this->getData(self::POST_ID);
@@ -57,195 +60,195 @@ class Post extends AbstractModel implements PostInterface, IdentityInterface
 
 
     /**
-     * @return mixed
+     * @inheritdoc
      */
     public function getPostId()
     {
-        return $this->post_id;
+        return $this->getData(self::POST_ID);
     }
 
     /**
-     * @param mixed $post_id
+     * @inheritdoc
      */
     public function setPostId($post_id)
     {
-        $this->post_id = $post_id;
+        $this->setData(self::POST_ID, $post_id);
     }
 
     /**
-     * @return mixed
+     * @inheritdoc
      */
     public function getStoreId()
     {
-        return $this->store_id;
+        return $this->getData(self::STORE_ID);
     }
 
     /**
-     * @param mixed $store_id
+     * @inheritdoc
      */
     public function setStoreId($store_id)
     {
-        $this->store_id = $store_id;
+        $this->setData(self::STORE_ID, $store_id);
     }
 
     /**
-     * @return mixed
+     * @inheritdoc
      */
     public function getShortDescription()
     {
-        return $this->short_description;
+        return $this->getData(self::SHORT_DESCRIPTION);
     }
 
     /**
-     * @param mixed $short_description
+     * @inheritdoc
      */
     public function setShortDescription($short_description)
     {
-        $this->short_description = $short_description;
+        $this->setData(self::SHORT_DESCRIPTION, $short_description);
     }
 
     /**
-     * @return mixed
+     * @inheritdoc
      */
     public function getContent()
     {
-        return $this->content;
+        return $this->getData(self::CONTENT);
     }
 
     /**
-     * @param mixed $content
+     * @inheritdoc
      */
     public function setContent($content)
     {
-        $this->content = $content;
+        $this->setData(self::CONTENT, $content);
     }
 
     /**
-     * @return mixed
+     * @inheritdoc
      */
     public function getAuthorId()
     {
-        return $this->author_id;
+        return $this->getData(self::AUTHOR_ID);
     }
 
     /**
-     * @param mixed $author_id
+     * @inheritdoc
      */
     public function setAuthorId($author_id)
     {
-        $this->author_id = $author_id;
+        $this->setData(self::AUTHOR_ID, $author_id);
     }
 
     /**
-     * @return mixed
+     * @inheritdoc
      */
     public function getStatus()
     {
-        return $this->status;
+        return $this->getData(self::STATUS);
     }
 
     /**
-     * @param mixed $status
+     * @inheritdoc
      */
     public function setStatus($status)
     {
-        $this->status = $status;
+        $this->setData(self::STATUS, $status);
     }
 
     /**
-     * @return mixed
+     * @inheritdoc
      */
     public function getAllowComment()
     {
-        return $this->allow_comment;
+        return $this->getData(self::ALLOW_COMMENT);
     }
 
     /**
-     * @param mixed $allow_comment
+     * @inheritdoc
      */
     public function setAllowComment($allow_comment)
     {
-        $this->allow_comment = $allow_comment;
+        $this->setData(self::ALLOW_COMMENT, $allow_comment);
     }
 
     /**
-     * @return mixed
+     * @inheritdoc
      */
     public function getUrlKey()
     {
-        return $this->url_key;
+        return $this->getData(self::URL_KEY);
     }
 
     /**
-     * @param mixed $url_key
+     * @inheritdoc
      */
     public function setUrlKey($url_key)
     {
-        $this->url_key = $url_key;
+        $this->setData(self::URL_KEY, $url_key);
     }
 
     /**
-     * @return mixed
+     * @inheritdoc
      */
     public function getViews()
     {
-        return $this->views;
+        return $this->getData(self::VIEWS);
     }
 
     /**
-     * @param mixed $views
+     * @inheritdoc
      */
     public function setViews($views)
     {
-        $this->views = $views;
+        $this->setData(self::VIEWS, $views);
     }
 
     /**
-     * @return mixed
+     * @inheritdoc
      */
     public function getImage()
     {
-        return $this->image;
+        return $this->getData(self::IMAGE);
     }
 
     /**
-     * @param mixed $image
+     * @inheritdoc
      */
     public function setImage($image)
     {
-        $this->image = $image;
+        $this->setData(self::IMAGE, $image);
     }
 
     /**
-     * @return mixed
+     * @inheritdoc
      */
     public function getCreatedAt()
     {
-        return $this->created_at;
+        return $this->getData(self::CREATED_AT);
     }
 
     /**
-     * @param mixed $created_at
+     * @inheritdoc
      */
     public function setCreatedAt($created_at)
     {
-        $this->created_at = $created_at;
+        $this->setData(self::CREATED_AT, $created_at);
     }
 
     /**
-     * @return mixed
+     * @inheritdoc
      */
     public function getUpdatedAt()
     {
-        return $this->updated_at;
+        return $this->getData(self::UPDATED_AT);
     }
 
     /**
-     * @param mixed $updated_at
+     * @inheritdoc
      */
     public function setUpdatedAt($updated_at)
     {
-        $this->updated_at = $updated_at;
+        $this->setData(self::UPDATED_AT, $updated_at);
     }
 
 

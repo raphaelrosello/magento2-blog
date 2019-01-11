@@ -13,7 +13,7 @@ interface PostInterface
     CONST CONTENT = 'content';
     CONST AUTHOR_ID = 'author_id';
     CONST STATUS = 'status';
-    CONST ALLOW_CONTENT = 'allow_comment';
+    CONST ALLOW_COMMENT = 'allow_comment';
     CONST URL_KEY = 'url_key';
     CONST VIEWS = 'views';
     CONST IMAGE = 'image';
@@ -27,6 +27,7 @@ interface PostInterface
 
     /**
      * @param int $post_id
+     * @return $this
      */
     public function setPostId($post_id);
 
@@ -37,16 +38,19 @@ interface PostInterface
 
     /**
      * @param int $store_id
+     * @return $this
      */
     public function setStoreId($store_id);
 
     /**
      * @return string
+     *
      */
     public function getShortDescription();
 
     /**
      * @param string $short_description
+     * @return $this
      */
     public function setShortDescription($short_description);
 
@@ -57,6 +61,7 @@ interface PostInterface
 
     /**
      * @param string $content
+     * @return $this
      */
     public function setContent($content);
 
@@ -67,6 +72,7 @@ interface PostInterface
 
     /**
      * @param int $author_id
+     * @return $this
      */
     public function setAuthorId($author_id);
 
@@ -77,6 +83,7 @@ interface PostInterface
 
     /**
      * @param string $status
+     * @return $this
      */
     public function setStatus($status);
 
@@ -87,6 +94,7 @@ interface PostInterface
 
     /**
      * @param bool $allow_comment
+     * @return $this
      */
     public function setAllowComment($allow_comment);
 
@@ -97,6 +105,7 @@ interface PostInterface
 
     /**
      * @param string $url_key
+     * @return $this
      */
     public function setUrlKey($url_key);
 
@@ -107,6 +116,7 @@ interface PostInterface
 
     /**
      * @param int $views
+     * @return $this
      */
     public function setViews($views);
 
@@ -117,6 +127,7 @@ interface PostInterface
 
     /**
      * @param string $image
+     * @return $this
      */
     public function setImage($image);
 
@@ -127,6 +138,7 @@ interface PostInterface
 
     /**
      * @param string $created_at
+     * @return $this
      */
     public function setCreatedAt($created_at);
 
@@ -137,6 +149,7 @@ interface PostInterface
 
     /**
      * @param string $updated_at
+     * @return $this
      */
     public function setUpdatedAt($updated_at);
 
