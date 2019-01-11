@@ -4,22 +4,42 @@
 namespace Raphaelrosello\Blog\Block\Post;
 
 
+use Magento\Framework\Api\SearchCriteriaBuilder;
+use Magento\Framework\Api\SearchCriteriaInterface;
+use Magento\Framework\Api\SortOrder;
+use Magento\Framework\Api\SortOrderBuilder;
 use Magento\Framework\DataObject\IdentityInterface;
 use Magento\Framework\View\Element\Template;
+use Raphaelrosello\Blog\Api\PostRepositoryInterface;
 use Raphaelrosello\Blog\Model\Post;
-use Raphaelrosello\Blog\Model\ResourceModel\Post\CollectionFactory;
-use Raphaelrosello\Blog\Model\ResourceModel\Post\Collection as PostCollection;
 
 class PostList extends Template implements IdentityInterface
 {
-    protected $_postCollectionFactory;
+    /**
+     * @var PostRepositoryInterface
+     */
+    protected $postRepository;
+
+    /**
+     * @var SortOrderBuilder
+     */
+    protected $sortOrderBuilder;
+
+    /**
+     * @var SearchCriteriaBuilder
+     */
+    protected $searchCriteriaBuilder;
 
     public function __construct(
-        CollectionFactory $postCollectionFactory,
+        PostRepositoryInterface $postRepository,
+        SortOrderBuilder $sortOrderBuilder,
+        SearchCriteriaBuilder $searchCriteriaBuilder,
         Template\Context $context,
         array $data = [])
     {
-        $this->_postCollectionFactory = $postCollectionFactory;
+        $this->postRepository = $postRepository;
+        $this->sortOrderBuilder = $sortOrderBuilder;
+        $this->searchCriteriaBuilder = $searchCriteriaBuilder;
         parent::__construct($context, $data);
     }
 
@@ -31,12 +51,21 @@ class PostList extends Template implements IdentityInterface
     public function getPosts()
     {
         if (!$this->hasData('posts')) {
-            $posts = $this->_postCollectionFactory->create()
-                ->addFilter('status', 1)
-                ->addOrder(
-                    Post::CREATED_AT,
-                    PostCollection::SORT_ORDER_DESC
-                );
+            $sortOrder = $this->sortOrderBuilder
+                ->setField('created_at')
+                ->setDirection(SortOrder::SORT_DESC)
+                ->create();
+
+            $searchCriteriaBuilder = $this->searchCriteriaBuilder
+                ->addSortOrder($sortOrder)
+                ->setPageSize(5)
+                ->setCurrentPage(1)
+                ->create();
+
+            $posts = $this->postRepository
+                ->getList($searchCriteriaBuilder)
+                ->getItems();
+
             $this->setData('posts', $posts);
         }
 

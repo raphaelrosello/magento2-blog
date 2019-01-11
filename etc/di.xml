@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Raphaelrosello\Blog\Api\Data\PostInterface" type="Raphaelrosello\Blog\Model\Post" />
+    <preference for="Raphaelrosello\Blog\Api\Data\PostSearchInterface" type="Magento\Framework\Api\SearchResults" />
+    <preference for="Raphaelrosello\Blog\Api\PostRepositoryInterface" type="Raphaelrosello\Blog\Model\PostRepository" />
+</config>
