@@ -6,6 +6,7 @@ namespace Raphaelrosello\Blog\Model;
 
 use Magento\Framework\Api\SearchCriteria\CollectionProcessor;
 use Magento\Framework\Api\SearchCriteriaInterface;
+use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Raphaelrosello\Blog\Api\Data\PostInterface;
 use Raphaelrosello\Blog\Api\Data\PostSearchInterfaceFactory;
@@ -46,9 +47,23 @@ class PostRepository implements PostRepositoryInterface
         $this->collectionProcessor = $collectionProcessor;
     }
 
+    /**
+     * @param PostInterface $post
+     * @param bool $saveOptions
+     * @return PostInterface
+     * @throws CouldNotSaveException
+     */
     public function save(PostInterface $post, $saveOptions = false)
     {
-        // TODO: Implement save() method.
+        try {
+            $this->postResource->save($post);
+        } catch (\Exception $exception) {
+            throw new CouldNotSaveException(
+                __('Could not save the page: %1', $exception->getMessage()),
+                $exception
+            );
+        }
+        return $post;
     }
 
     /**
@@ -81,6 +96,9 @@ class PostRepository implements PostRepositoryInterface
         return $post;
     }
 
+    public function delete(PostInterface $post) {
+
+    }
 
     public function deleteById($post_id)
     {
@@ -99,6 +117,7 @@ class PostRepository implements PostRepositoryInterface
 
         $searchResult->setSearchCriteria($searchCriteria);
         $searchResult->setItems($collection->getItems());
+        $searchResult->setTotalCount($collection->getSize());
 
         return $searchResult;
 

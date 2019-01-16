@@ -50,11 +50,11 @@ class InstallSchema implements InstallSchemaInterface
                     null,
                     [],
                     'Author')
-                ->addColumn('status',
+                ->addColumn('is_active',
                     Table::TYPE_SMALLINT,
                     3,
                     ['default' => 1],
-                    'Status')
+                    'Is Active')
                 ->addColumn('allow_comment',
                     Table::TYPE_SMALLINT,
                     1,
@@ -343,11 +343,11 @@ class InstallSchema implements InstallSchemaInterface
                     null,
                     [],
                     'Created At')
-                ->addColumn('status',
+                ->addColumn('is_active',
                     Table::TYPE_SMALLINT,
                     3,
                     ['unsigned' => true, 'nullable' => false, 'default' => 3],
-                    'Status')
+                    'Is Active')
                 ->addColumn('store_ids',
                     Table::TYPE_TEXT,
                     null,

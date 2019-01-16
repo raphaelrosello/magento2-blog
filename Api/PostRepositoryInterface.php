@@ -4,6 +4,8 @@
 namespace Raphaelrosello\Blog\Api;
 
 
+use Raphaelrosello\Blog\Api\Data\PostInterface;
+
 interface PostRepositoryInterface
 {
 
@@ -28,6 +30,8 @@ interface PostRepositoryInterface
     public function getById($post_id);
 
     /**
+     * Get post by URL key
+     *
      * @param string $url_key
      * @return \Raphaelrosello\Blog\Api\Data\PostInterface
      * @throws \Magento\Framework\Exception\NoSuchEntityException
@@ -35,7 +39,15 @@ interface PostRepositoryInterface
     public function getByUrlKey($url_key);
 
     /**
-     * Delete Blog
+     * Delete blog object
+     *
+     * @param PostInterface $post
+     * @return bool
+     */
+    public function delete(PostInterface $post);
+
+    /**
+     * Delete Blog by ID
      *
      * @param int $post_id
      * @return bool

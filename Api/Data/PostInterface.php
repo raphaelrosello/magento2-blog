@@ -12,7 +12,7 @@ interface PostInterface
     CONST SHORT_DESCRIPTION = 'short_description';
     CONST CONTENT = 'content';
     CONST AUTHOR_ID = 'author_id';
-    CONST STATUS = 'status';
+    CONST IS_ACTIVE = 'is_active';
     CONST ALLOW_COMMENT = 'allow_comment';
     CONST URL_KEY = 'url_key';
     CONST VIEWS = 'views';
@@ -77,15 +77,15 @@ interface PostInterface
     public function setAuthorId($author_id);
 
     /**
-     * @return string
+     * @return bool
      */
-    public function getStatus();
+    public function isActive();
 
     /**
-     * @param string $status
+     * @param int|bool $isActive
      * @return $this
      */
-    public function setStatus($status);
+    public function setIsActive($isActive);
 
     /**
      * @return bool
