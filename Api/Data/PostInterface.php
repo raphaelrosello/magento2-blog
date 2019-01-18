@@ -9,7 +9,7 @@ interface PostInterface
 
     CONST POST_ID = 'post_id';
     CONST STORE_ID = 'store_id';
-    CONST SHORT_DESCRIPTION = 'short_description';
+    CONST TITLE = 'title';
     CONST CONTENT = 'content';
     CONST AUTHOR_ID = 'author_id';
     CONST IS_ACTIVE = 'is_active';
@@ -46,13 +46,13 @@ interface PostInterface
      * @return string
      *
      */
-    public function getShortDescription();
+    public function getTitle();
 
     /**
-     * @param string $short_description
+     * @param string $title
      * @return $this
      */
-    public function setShortDescription($short_description);
+    public function setTitle($title);
 
     /**
      * @return string

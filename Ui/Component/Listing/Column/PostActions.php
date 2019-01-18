@@ -50,8 +50,8 @@ class PostActions extends Column
                         'href' => $this->urlBuilder->getUrl(self::BLOG_URL_PATH_DELETE, ['post_id' => $item['post_id']]),
                         'label' => __('Delete'),
                         'confirm' => [
-                            'title' => __('Delete "${ $.$data.short_description }"'),
-                            'message' => __('Are you sure you wan\'t to delete a "${ $.$data.short_description }" record?')
+                            'title' => __('Delete "${ $.$data.title }"'),
+                            'message' => __('Are you sure you wan\'t to delete this post?')
                         ]
                     ];
                 }

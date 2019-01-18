@@ -33,13 +33,13 @@ class InstallSchema implements InstallSchemaInterface
                 ->addColumn('store_id',
                     Table::TYPE_TEXT,
                     null,
-                    ['nullable' => false, 'unsigned' => true],
+                    ['nullable' => true, 'unsigned' => true],
                     'Store Id')
-                ->addColumn('short_description',
+                ->addColumn('title',
                     Table::TYPE_TEXT,
                     255,
                     [],
-                    'Short Description')
+                    'Title')
                 ->addColumn('content',
                     Table::TYPE_TEXT,
                     '64k',
@@ -78,12 +78,12 @@ class InstallSchema implements InstallSchemaInterface
                 ->addColumn('created_at',
                     Table::TYPE_TIMESTAMP,
                     null,
-                    [],
+                    ['nullable' => false, 'default' => Table::TIMESTAMP_INIT],
                     'Created At')
                 ->addColumn('updated_at',
                     Table::TYPE_TIMESTAMP,
                     null,
-                    [],
+                    ['nullable' => false, 'default' => Table::TIMESTAMP_INIT_UPDATE],
                     'Updated At');
 
         }
@@ -115,11 +115,6 @@ class InstallSchema implements InstallSchemaInterface
                     '64k',
                     [],
                     'Description')
-                ->addColumn('store_id',
-                    Table::TYPE_TEXT,
-                    null,
-                    ['nullable' => false, 'unsigned' => true,],
-                    'Store ID')
                 ->addColumn('enabled',
                     Table::TYPE_INTEGER,
                     1,
@@ -128,12 +123,12 @@ class InstallSchema implements InstallSchemaInterface
                 ->addColumn('updated_at',
                     Table::TYPE_TIMESTAMP,
                     null,
-                    [],
+                    ['nullable' => false, 'default' => Table::TIMESTAMP_INIT],
                     'Updated At')
                 ->addColumn('created_at',
                     Table::TYPE_TIMESTAMP,
                     null,
-                    [],
+                    ['nullable' => false, 'default' => Table::TIMESTAMP_INIT_UPDATE],
                     'Created At');
         }
 
@@ -159,12 +154,6 @@ class InstallSchema implements InstallSchemaInterface
                     '64k',
                     [],
                     'Description')
-                ->addColumn('store_id',
-                    Table::TYPE_TEXT,
-                    null,
-                    ['nullable' => false,
-                        'unsigned' => true,],
-                    'Store ID')
                 ->addColumn('url_key',
                     Table::TYPE_TEXT,
                     255,
@@ -203,12 +192,12 @@ class InstallSchema implements InstallSchemaInterface
                 ->addColumn('updated_at',
                     Table::TYPE_TIMESTAMP,
                     null,
-                    [],
+                    ['nullable' => false, 'default' => Table::TIMESTAMP_INIT_UPDATE],
                     'Updated At')
                 ->addColumn('created_at',
                     Table::TYPE_TIMESTAMP,
                     null,
-                    [],
+                    ['nullable' => false, 'default' => Table::TIMESTAMP_INIT],
                     'Created At');
         }
 
@@ -339,20 +328,20 @@ class InstallSchema implements InstallSchemaInterface
                     [],
                     'Content')
                 ->addColumn('created_at',
-                    Table::TYPE_TEXT,
+                    Table::TYPE_TIMESTAMP,
                     null,
-                    [],
+                    ['nullable' => false, 'default' => Table::TIMESTAMP_INIT],
                     'Created At')
+                ->addColumn('updated_at',
+                    Table::TYPE_TIMESTAMP,
+                    null,
+                    ['nullable' => false, 'default' => Table::TIMESTAMP_INIT_UPDATE],
+                    'Updated At')
                 ->addColumn('is_active',
                     Table::TYPE_SMALLINT,
                     3,
                     ['unsigned' => true, 'nullable' => false, 'default' => 3],
                     'Is Active')
-                ->addColumn('store_ids',
-                    Table::TYPE_TEXT,
-                    null,
-                    ['nullable' => false, 'unsigned' => true,],
-                    'Store Id')
                 ->addIndex($installer->getIdxName('raphaelrosello_blog_comment', ['comment_id']), ['comment_id'])
                 ->addIndex($installer->getIdxName('raphaelrosello_blog_comment', ['entity_id']), ['entity_id'])
                 ->addForeignKey(

@@ -94,17 +94,17 @@ class Post extends AbstractModel implements PostInterface, IdentityInterface
     /**
      * @inheritdoc
      */
-    public function getShortDescription()
+    public function getTitle()
     {
-        return $this->getData(self::SHORT_DESCRIPTION);
+        return $this->getData(self::TITLE);
     }
 
     /**
      * @inheritdoc
      */
-    public function setShortDescription($short_description)
+    public function setTitle($title)
     {
-        $this->setData(self::SHORT_DESCRIPTION, $short_description);
+        $this->setData(self::TITLE, $title);
     }
 
     /**

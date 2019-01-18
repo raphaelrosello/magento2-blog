@@ -89,7 +89,7 @@ class Edit extends Action
 
         $resultPage->getConfig()->getTitle()->prepend(__('Pages'));
         $resultPage->getConfig()->getTitle()
-            ->prepend($post->getPostId() ? $post->getShortDescription() : __('New Page'));
+            ->prepend($model->getPostId() ? $model->getTitle() : __('New Page'));
 
         return $resultPage;
     }
