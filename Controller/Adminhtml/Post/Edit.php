@@ -6,6 +6,8 @@ namespace Raphaelrosello\Blog\Controller\Adminhtml\Post;
 
 use Magento\Backend\App\Action;
 use Raphaelrosello\Blog\Api\PostRepositoryInterface;
+use Raphaelrosello\Blog\Model\Post;
+use Raphaelrosello\Blog\Model\PostFactory;
 
 class Edit extends Action
 {
@@ -27,21 +29,28 @@ class Edit extends Action
      */
     protected $postRepository;
 
+
+    protected $postFactory;
+
     /**
+     * Edit constructor.
      * @param Action\Context $context
      * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
      * @param \Magento\Framework\Registry $registry
      * @param PostRepositoryInterface $postRepository
+     * @param PostFactory $postFactory
      */
     public function __construct(
         Action\Context $context,
         \Magento\Framework\View\Result\PageFactory $resultPageFactory,
         \Magento\Framework\Registry $registry,
-        PostRepositoryInterface $postRepository
+        PostRepositoryInterface $postRepository,
+        PostFactory $postFactory
     ) {
         $this->resultPageFactory = $resultPageFactory;
         $this->_coreRegistry = $registry;
         $this->postRepository = $postRepository;
+        $this->postFactory = $postFactory;
         parent::__construct($context);
     }
 
@@ -64,22 +73,23 @@ class Edit extends Action
 
     /**
      * @return \Magento\Backend\Model\View\Result\Page|\Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\Result\Redirect|\Magento\Framework\Controller\ResultInterface
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function execute()
     {
         $post_id = $this->getRequest()->getParam('post_id');
+        $model = $this->_objectManager->create(Post::class);
 
-        if(!$post_id) {
+        if($post_id) {
+            $model->load($post_id);
+            if (!$model->getPostId()) {
+                $this->messageManager->addErrorMessage('This post no longer exists.');
+                $resultRedirect = $this->resultRedirectFactory->create();
 
-            $this->messageManager->addErrorMessage('This post no longer exists.');
-            $resultRedirect = $this->resultRedirectFactory->create();
-
-            return $resultRedirect->setPath('*/*/');
+                return $resultRedirect->setPath('*/*/');
+            }
         }
 
-        $post = $this->postRepository->getById($post_id);
-        $this->_coreRegistry->register('blog_post', $post);
+        $this->_coreRegistry->register('blog_post', $model);
 
         $resultPage = $this->_initAction();
         $resultPage->addBreadcrumb(

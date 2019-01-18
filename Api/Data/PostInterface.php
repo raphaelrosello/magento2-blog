@@ -79,7 +79,7 @@ interface PostInterface
     /**
      * @return bool
      */
-    public function isActive();
+    public function getIsActive();
 
     /**
      * @param int|bool $isActive

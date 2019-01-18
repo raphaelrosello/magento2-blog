@@ -6,6 +6,7 @@ namespace Raphaelrosello\Blog\Model;
 
 use Magento\Framework\Api\SearchCriteria\CollectionProcessor;
 use Magento\Framework\Api\SearchCriteriaInterface;
+use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Raphaelrosello\Blog\Api\Data\PostInterface;
@@ -67,7 +68,9 @@ class PostRepository implements PostRepositoryInterface
     }
 
     /**
-     * @inheritdoc
+     * @param int $post_id
+     * @return PostInterface|Post
+     * @throws NoSuchEntityException
      */
     public function getById($post_id)
     {
@@ -82,7 +85,9 @@ class PostRepository implements PostRepositoryInterface
     }
 
     /**
-     * @inheritdoc
+     * @param string $url_key
+     * @return PostInterface|Post
+     * @throws NoSuchEntityException
      */
     public function getByUrlKey($url_key)
     {
@@ -96,13 +101,36 @@ class PostRepository implements PostRepositoryInterface
         return $post;
     }
 
-    public function delete(PostInterface $post) {
+    /**
+     * @param PostInterface $post
+     * @return bool
+     * @throws CouldNotDeleteException
+     */
+    public function delete(PostInterface $post)
+    {
+        try {
+            $this->postResource->delete($post);
+
+        } catch (\Exception $exception) {
+            throw new CouldNotDeleteException(__(
+                'Could not delete the page: %1',
+                $exception->getMessage()
+            ));
+        }
+
+        return true;
 
     }
 
+    /**
+     * @param int $post_id
+     * @return bool
+     * @throws CouldNotDeleteException
+     * @throws NoSuchEntityException
+     */
     public function deleteById($post_id)
     {
-        // TODO: Implement deleteById() method.
+        return $this->delete($this->getById($post_id));
     }
 
     /**

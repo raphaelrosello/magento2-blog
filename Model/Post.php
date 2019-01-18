@@ -142,7 +142,7 @@ class Post extends AbstractModel implements PostInterface, IdentityInterface
     /**
      * @inheritdoc
      */
-    public function isActive()
+    public function getIsActive()
     {
         return (bool)$this->getData(self::IS_ACTIVE);
     }
