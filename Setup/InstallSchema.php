@@ -56,11 +56,6 @@ class InstallSchema implements InstallSchemaInterface
                     null,
                     ['default' => 1],
                     'Is Active')
-                ->addColumn('is_active',
-                    Table::TYPE_SMALLINT,
-                    null,
-                    ['default' => 1],
-                    'Is Active')
                 ->addColumn('is_featured',
                     Table::TYPE_SMALLINT,
                     null,
