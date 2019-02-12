@@ -22,6 +22,7 @@ class InstallSchema implements InstallSchemaInterface
 
         // Post table
         if (!$installer->tableExists('raphaelrosello_blog_post')) {
+            
             $table = $installer->getConnection()
                 ->newTable($installer->getTable('raphaelrosello_blog_post'))
                 ->addColumn('post_id', Table::TYPE_INTEGER, null, [
@@ -115,11 +116,6 @@ class InstallSchema implements InstallSchemaInterface
                     '64k',
                     [],
                     'Description')
-                ->addColumn('enabled',
-                    Table::TYPE_INTEGER,
-                    1,
-                    [],
-                    'enabled')
                 ->addColumn('updated_at',
                     Table::TYPE_TIMESTAMP,
                     null,

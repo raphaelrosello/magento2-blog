@@ -5,16 +5,20 @@
     <?php /** @var $post \Raphaelrosello\Blog\Api\Data\PostInterface */ ?>
     <?php foreach ($block->getPosts() as $post): ?>
         <li class="blog-post-list-item">
-            <h3 class="blog-post-item-title">
-                <a href="<?php echo $post->getUrlKey(); ?>"><?php echo $post->getTitle() ?></a>
-            </h3>
-
-            <div class="blog-post-item-content">
-                <?php echo $post->getContent(); ?>
-            </div>
-
-            <div class="blog-post-item-meta">
-                <strong><?php echo __('Created at:') ?></strong> <?php echo $post->getCreatedAt() ?>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img class="img-thumbnail" style="width: 100px;" src="<?php echo $block->getMediaUrl().'/'.$post->getImage(); ?>" />
+                    </div>
+                    <div class="col-sm-8">
+                        <h3 class="blog-post-item-title">
+                            <a href="<?php echo $post->getUrlKey(); ?>"><?php echo $post->getTitle() ?></a>
+                        </h3>
+                        <div class="blog-post-item-meta">
+                            <?php echo $post->getCreatedAt() ?>
+                        </div>
+                    </div>
+                </div>
             </div>
         </li>
     <?php endforeach; ?>

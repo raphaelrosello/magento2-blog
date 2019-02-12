@@ -15,7 +15,7 @@ class Post extends AbstractModel implements PostInterface, IdentityInterface
     const STATUS_DISABLED = 0;
 
     /**
-     * CMS page cache tag
+     * BLOG POST cache tag
      */
     const CACHE_TAG = 'blog_post';
 

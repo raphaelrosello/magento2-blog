@@ -5,7 +5,8 @@ namespace Raphaelrosello\Blog\Model\Post;
 
 
 use Magento\Framework\App\Request\DataPersistorInterface;
-use Raphaelrosello\Blog\Model\ResourceModel\Post\CollectionFactory;
+use Magento\Store\Model\StoreManagerInterface;
+use Raphaelrosello\Blog\Model\ResourceModel\Post\CollectionFactory as PostCollectionFactory;
 
 class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 {
@@ -25,18 +26,25 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
      */
     protected $loadedData;
 
+    /**
+     * @var StoreManagerInterface
+     */
+    protected $storeManager;
+
     public function __construct(
         string $name,
         string $primaryFieldName,
         string $requestFieldName,
-        CollectionFactory $collection,
+        PostCollectionFactory $collection,
         DataPersistorInterface $dataPersistor,
+        StoreManagerInterface $storeManager,
         array $meta = [],
         array $data = []
     )
     {
         $this->collection = $collection->create();
         $this->dataPersistor = $dataPersistor;
+        $this->storeManager = $storeManager;
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
     }
 
@@ -58,16 +66,25 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
      */
     public function getData()
     {
+
         if (isset($this->loadedData)) {
             return $this->loadedData;
         }
+
         $items = $this->collection->getItems();
         /** @var $post \Raphaelrosello\Blog\Model\Post */
         foreach ($items as $post) {
-            $this->loadedData[$post->getPostId()] = $post->getData();
+            $postData = $post->getData();
+            $postImage = $post['image'];
+            unset($postData['image']);
+            $postData['image'][0]['name'] = $postImage;
+            $postData['image'][0]['url'] = $this->getMediaUrl().$postImage;
+
+            $this->loadedData[$post->getPostId()] = $postData;
         }
 
         $data = $this->dataPersistor->get('blog_post');
+
         if (!empty($data)) {
             $post = $this->collection->getNewEmptyItem();
             $post->setData($data);
@@ -76,6 +93,13 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         }
 
         return $this->loadedData;
+    }
+
+    public function getMediaUrl()
+    {
+        $mediaUrl = $this->storeManager->getStore()
+                ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA).'blog/image/';
+        return $mediaUrl;
     }
 
 }

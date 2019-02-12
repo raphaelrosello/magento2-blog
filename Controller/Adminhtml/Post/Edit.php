@@ -29,7 +29,9 @@ class Edit extends Action
      */
     protected $postRepository;
 
-
+    /**
+     * @var PostFactory
+     */
     protected $postFactory;
 
     /**
@@ -87,6 +89,11 @@ class Edit extends Action
 
                 return $resultRedirect->setPath('*/*/');
             }
+        }
+
+        $data = $this->_session->getFormData(true);
+        if(!empty($data)) {
+            $model->setData($data);
         }
 
         $this->_coreRegistry->register('blog_post', $model);

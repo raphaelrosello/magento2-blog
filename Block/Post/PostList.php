@@ -73,4 +73,11 @@ class PostList extends Template implements IdentityInterface
 
     }
 
+    public function getMediaUrl()
+    {
+        $mediaUrl = $this->_storeManager->getStore()
+                ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA).'blog/image/';
+        return $mediaUrl;
+    }
+
 }

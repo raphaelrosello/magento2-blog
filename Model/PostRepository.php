@@ -60,7 +60,7 @@ class PostRepository implements PostRepositoryInterface
             $this->postResource->save($post);
         } catch (\Exception $exception) {
             throw new CouldNotSaveException(
-                __('Could not save the page: %1', $exception->getMessage()),
+                __('Could not save post: %1', $exception->getMessage()),
                 $exception
             );
         }

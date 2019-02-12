@@ -118,7 +118,27 @@
                 </checkbox>
             </formElements>
         </field>
-        <field name="storeviews" formElement="multiselect">
+        <fieldset name="tags">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="collapsible" xsi:type="boolean">false</item>
+                    <item name="label" xsi:type="string" translate="true">Tags</item>
+                </item>
+            </argument>
+            <field name="tag_ids">
+                <argument name="data" xsi:type="array">
+                    <item name="options" xsi:type="object">Raphaelrosello\Blog\Ui\Post\Source\Tags</item>
+                    <item name="config" xsi:type="array">
+                        <item name="component" xsi:type="string">Raphaelrosello_Blog/js/post/form/tags</item>
+                        <item name="elementTmpl" xsi:type="string">Raphaelrosello_Blog/post/form/tags</item>
+                        <item name="dataType" xsi:type="string">string</item>
+                        <item name="formElement" xsi:type="string">multiselect</item>
+                        <item name="label" xsi:type="string" translate="true">Tags</item>
+                    </item>
+                </argument>
+            </field>
+        </fieldset>
+        <!--<field name="store_id" formElement="multiselect">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="source" xsi:type="string">block</item>
@@ -140,6 +160,24 @@
                     </settings>
                 </multiselect>
             </formElements>
+        </field>-->
+        <field name="image" formElement="fileUploader">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">string</item>
+                    <item name="source" xsi:type="string">post</item>
+                    <item name="label" xsi:type="string" translate="true">Image</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
+                    <item name="previewTmpl" xsi:type="string">Raphaelrosello_Blog/image-preview</item>
+                    <item name="required" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="number">40</item>
+                    <item name="notice" xsi:type="string" translate="true">Allowed file types: jpeg, gif, png.</item>
+                    <item name="uploaderConfig" xsi:type="array">
+                        <item name="url" xsi:type="url" path="blog/post/upload"/>
+                    </item>
+                </item>
+            </argument>
         </field>
         <field name="content" formElement="wysiwyg">
             <argument name="data" xsi:type="array">
