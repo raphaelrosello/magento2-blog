@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<page layout="2columns-right" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="sidebar.additional">
+            <block class="Raphaelrosello\Blog\Block\Post\Featured" name="blog.featured"
+                   template="Raphaelrosello_Blog::post/featured.phtml" >
+            </block>
+        </referenceContainer>
+
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+    </body>
+</page>
