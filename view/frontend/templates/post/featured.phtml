@@ -1,0 +1,10 @@
+<?php
+/** @var $block \Raphaelrosello\Blog\Block\Post\Featured */ ?>
+
+<ul>
+    <?php /** @var \Raphaelrosello\Blog\Model\Post $post */ ?>
+    <?php foreach ($block->getFeaturedPost() as $post): ?>
+        <li><a href="<?php echo $post->getUrlKey(); ?>"><?php echo $post->getTitle() ?></a></li>
+    <?php endforeach; ?>
+</ul>
+

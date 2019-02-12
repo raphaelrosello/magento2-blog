@@ -13,6 +13,7 @@ interface PostInterface
     CONST CONTENT = 'content';
     CONST AUTHOR_ID = 'author_id';
     CONST IS_ACTIVE = 'is_active';
+    CONST IS_FEATURED = 'is_featured';
     CONST ALLOW_COMMENT = 'allow_comment';
     CONST URL_KEY = 'url_key';
     CONST VIEWS = 'views';
@@ -86,6 +87,17 @@ interface PostInterface
      * @return $this
      */
     public function setIsActive($isActive);
+
+    /**
+     * @return bool
+     */
+    public function getIsFeatured();
+
+    /**
+     * @param int|bool $isFeatured
+     * @return $this
+     */
+    public function setIsFeatured($isFeatured);
 
     /**
      * @return bool

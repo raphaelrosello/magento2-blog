@@ -12,8 +12,9 @@ use Magento\Framework\View\Element\Template;
 use Raphaelrosello\Blog\Api\PostRepositoryInterface;
 use Raphaelrosello\Blog\Model\Post;
 
-class PostList extends Template implements IdentityInterface
+class Featured extends Template implements IdentityInterface
 {
+
     /**
      * @var PostRepositoryInterface
      */
@@ -47,7 +48,7 @@ class PostList extends Template implements IdentityInterface
         return [Post::CACHE_TAG.'_'.'list'];
     }
 
-    public function getPosts()
+    public function getFeaturedPost()
     {
         if (!$this->hasData('posts')) {
             $sortOrder = $this->sortOrderBuilder
@@ -56,8 +57,9 @@ class PostList extends Template implements IdentityInterface
                 ->create();
 
             $searchCriteriaBuilder = $this->searchCriteriaBuilder
+                ->addFilter('is_featured', 1, 'eq')
                 ->addSortOrder($sortOrder)
-                ->setPageSize(10)
+                ->setPageSize(5)
                 ->setCurrentPage(1)
                 ->create();
 
@@ -69,14 +71,6 @@ class PostList extends Template implements IdentityInterface
         }
 
         return $this->getData('posts');
-
-    }
-
-    public function getMediaUrl()
-    {
-        $mediaUrl = $this->_storeManager->getStore()
-                ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA).'blog/image/';
-        return $mediaUrl;
     }
 
 }

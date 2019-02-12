@@ -53,9 +53,19 @@ class InstallSchema implements InstallSchemaInterface
                     'Author')
                 ->addColumn('is_active',
                     Table::TYPE_SMALLINT,
-                    3,
+                    null,
                     ['default' => 1],
                     'Is Active')
+                ->addColumn('is_active',
+                    Table::TYPE_SMALLINT,
+                    null,
+                    ['default' => 1],
+                    'Is Active')
+                ->addColumn('is_featured',
+                    Table::TYPE_SMALLINT,
+                    null,
+                    ['default' => 0],
+                    'Is Featured')
                 ->addColumn('allow_comment',
                     Table::TYPE_SMALLINT,
                     1,

@@ -17,4 +17,16 @@ class Post extends AbstractDb
         $this->_init('raphaelrosello_blog_post', 'post_id');
     }
 
+    /*protected function _getLoadSelect($field, $value, $object)
+    {
+        $select = parent::_getLoadSelect($field, $value, $object);
+
+        $select->where(
+            'is_active = ?',
+            1
+        );
+
+        return $select;
+    }*/
+
 }

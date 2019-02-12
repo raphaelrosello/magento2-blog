@@ -17,4 +17,18 @@ class Collection extends AbstractCollection
             'Raphaelrosello\Blog\Model\ResourceModel\Post'
         );
     }
+
+    /**
+     * @return $this
+     */
+    public function addIsActiveFilter()
+    {
+        $this->addFieldToFilter('is_active', 1);
+        $this->_eventManager->dispatch(
+            $this->_eventPrefix . '_add_is_active_filter',
+            [$this->_eventObject => $this]
+        );
+        return $this;
+    }
+
 }

@@ -139,6 +139,7 @@ class PostRepository implements PostRepositoryInterface
     public function getList(SearchCriteriaInterface $searchCriteria)
     {
         $collection = $this->collection->create();
+        $collection->addIsActiveFilter();
         $this->collectionProcessor->process($searchCriteria, $collection);
 
         $searchResult = $this->postSearchFactory->create();

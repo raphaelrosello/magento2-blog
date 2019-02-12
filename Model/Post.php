@@ -158,6 +158,23 @@ class Post extends AbstractModel implements PostInterface, IdentityInterface
     /**
      * @inheritdoc
      */
+    public function getIsFeatured()
+    {
+        return (bool)$this->getData(self::IS_FEATURED);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setIsFeatured($isFeatured)
+    {
+        $this->setData(self::IS_FEATURED, $isFeatured);
+    }
+
+
+    /**
+     * @inheritdoc
+     */
     public function getAllowComment()
     {
         return $this->getData(self::ALLOW_COMMENT);
