@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Block\Adminhtml\Post\Edit;
+namespace Rrosello\Blog\Block\Adminhtml\Post\Edit;
 
 
 use Magento\Backend\Block\Widget\Context;
 use Magento\Framework\Exception\NoSuchEntityException;
-use Raphaelrosello\Blog\Api\PostRepositoryInterface;
+use Rrosello\Blog\Api\PostRepositoryInterface;
 
 class GenericButton
 {

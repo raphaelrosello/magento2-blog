@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Block\Adminhtml\Post;
+namespace Rrosello\Blog\Block\Adminhtml\Post;
 
 
 use Magento\Backend\Block\Widget\Context;
@@ -30,12 +30,12 @@ class Edit extends \Magento\Backend\Block\Widget\Grid\Container
     protected function _construct()
     {
         $this->_objectId = 'post_id';
-        $this->_blockGroup = 'Raphaelrosello_Blog';
+        $this->_blockGroup = 'Rrosello_Blog';
         $this->_controller = 'adminhtml_post';
 
         parent::_construct();
 
-        if ($this->_isAllowedAction('Raphaelrosello_Blog::save')) {
+        if ($this->_isAllowedAction('Rrosello_Blog::save')) {
             $this->buttonList->update('save', 'label', __('Save Blog Post'));
             $this->buttonList->add(
                 'saveandcontinue',
@@ -54,7 +54,7 @@ class Edit extends \Magento\Backend\Block\Widget\Grid\Container
             $this->buttonList->remove('save');
         }
 
-        if ($this->_isAllowedAction('Raphaelrosello_Blog::post_delete')) {
+        if ($this->_isAllowedAction('Rrosello_Blog::post_delete')) {
             $this->buttonList->update('delete', 'label', __('Delete Post'));
         } else {
             $this->buttonList->remove('delete');

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Controller\Index;
+namespace Rrosello\Blog\Controller\Index;
 
 
 use Magento\Framework\App\Action\Action;

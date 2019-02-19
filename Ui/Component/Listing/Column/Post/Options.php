@@ -1,5 +1,5 @@
 <?php
-namespace Raphaelrosello\Blog\Ui\Component\Listing\Column\Post;
+namespace Rrosello\Blog\Ui\Component\Listing\Column\Post;
 
 use Magento\Store\Ui\Component\Listing\Column\Store\Options as StoreOptions;
 

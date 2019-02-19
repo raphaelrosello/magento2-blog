@@ -4,10 +4,10 @@
         <resources>
             <resource id="Magento_Backend::admin">
                 <resource id="Magento_Backend::content">
-                    <resource id="Raphaelrosello_Blog::blog" title="Blog" sortOrder="10" >
-                        <resource id="Raphaelrosello_Blog::post" title="Blog Posts" sortOrder="40">
-                            <resource id="Raphaelrosello_Blog::save" title="Save Post" sortOrder="10" />
-                            <resource id="Raphaelrosello_Blog::post_delete" title="Delete Post" sortOrder="20" />
+                    <resource id="Rrosello_Blog::blog" title="Blog" sortOrder="10" >
+                        <resource id="Rrosello_Blog::post" title="Blog Posts" sortOrder="40">
+                            <resource id="Rrosello_Blog::save" title="Save Post" sortOrder="10" />
+                            <resource id="Rrosello_Blog::post_delete" title="Delete Post" sortOrder="20" />
                         </resource>
                     </resource>
                 </resource>

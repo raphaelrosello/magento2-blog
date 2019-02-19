@@ -1,14 +1,14 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Controller;
+namespace Rrosello\Blog\Controller;
 
 
 use Magento\Framework\App\ActionFactory;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\App\RouterInterface;
 use Magento\Framework\Url;
-use Raphaelrosello\Blog\Api\PostRepositoryInterface;
+use Rrosello\Blog\Api\PostRepositoryInterface;
 
 class Router implements RouterInterface
 {

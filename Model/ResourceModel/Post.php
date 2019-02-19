@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Model\ResourceModel;
+namespace Rrosello\Blog\Model\ResourceModel;
 
 
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
@@ -14,7 +14,7 @@ class Post extends AbstractDb
      */
     protected function _construct()
     {
-        $this->_init('raphaelrosello_blog_post', 'post_id');
+        $this->_init('rrosello_blog_post', 'post_id');
     }
 
     /*protected function _getLoadSelect($field, $value, $object)

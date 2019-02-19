@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Setup;
+namespace Rrosello\Blog\Setup;
 
 use Magento\Framework\DB\Adapter\AdapterInterface;
 use Magento\Framework\DB\Ddl\Table;
@@ -21,10 +21,10 @@ class InstallSchema implements InstallSchemaInterface
         $installer->startSetup();
 
         // Post table
-        if (!$installer->tableExists('raphaelrosello_blog_post')) {
+        if (!$installer->tableExists('rrosello_blog_post')) {
             
             $table = $installer->getConnection()
-                ->newTable($installer->getTable('raphaelrosello_blog_post'))
+                ->newTable($installer->getTable('rrosello_blog_post'))
                 ->addColumn('post_id', Table::TYPE_INTEGER, null, [
                     'identity' => true,
                     'nullable' => false,
@@ -98,9 +98,9 @@ class InstallSchema implements InstallSchemaInterface
 
 
         // Tag table
-        if (!$installer->tableExists('raphaelrosello_blog_tag')) {
+        if (!$installer->tableExists('rrosello_blog_tag')) {
             $table = $installer->getConnection()
-                ->newTable($installer->getTable('raphaelrosello_blog_tag'))
+                ->newTable($installer->getTable('rrosello_blog_tag'))
                 ->addColumn('tag_id', Table::TYPE_INTEGER, null, [
                     'identity' => true,
                     'nullable' => false,
@@ -136,9 +136,9 @@ class InstallSchema implements InstallSchemaInterface
         $installer->getConnection()->createTable($table);
 
         // Category table
-        if (!$installer->tableExists('raphaelrosello_blog_category')) {
+        if (!$installer->tableExists('rrosello_blog_category')) {
             $table = $installer->getConnection()
-                ->newTable($installer->getTable('raphaelrosello_blog_category'))
+                ->newTable($installer->getTable('rrosello_blog_category'))
                 ->addColumn('category_id', Table::TYPE_INTEGER, null, [
                     'identity' => true,
                     'nullable' => false,
@@ -205,9 +205,9 @@ class InstallSchema implements InstallSchemaInterface
         $installer->getConnection()->createTable($table);
 
         // Post_Category table
-        if (!$installer->tableExists('raphaelrosello_blog_post_category')) {
+        if (!$installer->tableExists('rrosello_blog_post_category')) {
             $table = $installer->getConnection()
-                ->newTable($installer->getTable('raphaelrosello_blog_post_category'))
+                ->newTable($installer->getTable('rrosello_blog_post_category'))
                 ->addColumn('category_id', Table::TYPE_INTEGER, null, [
                     'unsigned' => true,
                     'primary'  => true,
@@ -219,24 +219,24 @@ class InstallSchema implements InstallSchemaInterface
                     'nullable' => false
                 ], 'Post ID')
                 ->addColumn('position', Table::TYPE_INTEGER, null, ['nullable' => false, 'default' => '0'], 'Position')
-                ->addIndex($installer->getIdxName('raphaelrosello_blog_post_category', ['category_id']), ['category_id'])
-                ->addIndex($installer->getIdxName('raphaelrosello_blog_post_category', ['post_id']), ['post_id'])
+                ->addIndex($installer->getIdxName('rrosello_blog_post_category', ['category_id']), ['category_id'])
+                ->addIndex($installer->getIdxName('rrosello_blog_post_category', ['post_id']), ['post_id'])
                 ->addForeignKey(
-                    $installer->getFkName('raphaelrosello_blog_post_category', 'category_id', 'raphaelrosello_blog_category', 'category_id'),
+                    $installer->getFkName('rrosello_blog_post_category', 'category_id', 'rrosello_blog_category', 'category_id'),
                     'category_id',
-                    $installer->getTable('raphaelrosello_blog_category'),
+                    $installer->getTable('rrosello_blog_category'),
                     'category_id',
                     Table::ACTION_CASCADE
                 )
                 ->addForeignKey(
-                    $installer->getFkName('raphaelrosello_blog_post_category', 'post_id', 'raphaelrosello_blog_post', 'post_id'),
+                    $installer->getFkName('rrosello_blog_post_category', 'post_id', 'rrosello_blog_post', 'post_id'),
                     'post_id',
-                    $installer->getTable('raphaelrosello_blog_post'),
+                    $installer->getTable('rrosello_blog_post'),
                     'post_id',
                     Table::ACTION_CASCADE
                 )
                 ->addIndex(
-                    $installer->getIdxName('raphaelrosello_blog_post_category', ['category_id', 'post_id'], AdapterInterface::INDEX_TYPE_UNIQUE),
+                    $installer->getIdxName('rrosello_blog_post_category', ['category_id', 'post_id'], AdapterInterface::INDEX_TYPE_UNIQUE),
                     ['category_id', 'post_id'],
                     ['type' => AdapterInterface::INDEX_TYPE_UNIQUE]
                 );
@@ -246,9 +246,9 @@ class InstallSchema implements InstallSchemaInterface
         $installer->getConnection()->createTable($table);
 
         // Post_Tag table
-        if (!$installer->tableExists('raphaelrosello_blog_post_tag')) {
+        if (!$installer->tableExists('rrosello_blog_post_tag')) {
             $table = $installer->getConnection()
-                ->newTable($installer->getTable('raphaelrosello_blog_post_tag'))
+                ->newTable($installer->getTable('rrosello_blog_post_tag'))
                 ->addColumn('post_id', Table::TYPE_INTEGER, null, [
                     'unsigned' => true,
                     'primary'  => true,
@@ -263,19 +263,19 @@ class InstallSchema implements InstallSchemaInterface
                     'nullable' => false,
                     'default'  => '0'
                 ], 'Position')
-                ->addIndex($installer->getIdxName('raphaelrosello_blog_post_tag', ['post_id']), ['post_id'])
-                ->addIndex($installer->getIdxName('raphaelrosello_blog_post_tag', ['tag_id']), ['tag_id'])
+                ->addIndex($installer->getIdxName('rrosello_blog_post_tag', ['post_id']), ['post_id'])
+                ->addIndex($installer->getIdxName('rrosello_blog_post_tag', ['tag_id']), ['tag_id'])
                 ->addForeignKey(
-                    $installer->getFkName('raphaelrosello_blog_post_tag', 'post_id', 'raphaelrosello_blog_post', 'post_id'),
+                    $installer->getFkName('rrosello_blog_post_tag', 'post_id', 'rrosello_blog_post', 'post_id'),
                     'post_id',
-                    $installer->getTable('raphaelrosello_blog_post'),
+                    $installer->getTable('rrosello_blog_post'),
                     'post_id',
                     Table::ACTION_CASCADE
                 )
                 ->addForeignKey(
-                    $installer->getFkName('raphaelrosello_blog_post_tag', 'tag_id', 'raphaelrosello_blog_tag', 'tag_id'),
+                    $installer->getFkName('rrosello_blog_post_tag', 'tag_id', 'rrosello_blog_tag', 'tag_id'),
                     'tag_id',
-                    $installer->getTable('raphaelrosello_blog_tag'),
+                    $installer->getTable('rrosello_blog_tag'),
                     'tag_id',
                     Table::ACTION_CASCADE
                 )
@@ -289,9 +289,9 @@ class InstallSchema implements InstallSchemaInterface
         $installer->getConnection()->createTable($table);
 
 
-        if (!$installer->tableExists('raphaelrosello_blog_comment')) {
+        if (!$installer->tableExists('rrosello_blog_comment')) {
             $table = $installer->getConnection()
-                ->newTable($installer->getTable('raphaelrosello_blog_comment'))
+                ->newTable($installer->getTable('rrosello_blog_comment'))
                 ->addColumn('comment_id', Table::TYPE_INTEGER, null, [
                     'identity' => true,
                     'unsigned' => true,
@@ -343,18 +343,18 @@ class InstallSchema implements InstallSchemaInterface
                     3,
                     ['unsigned' => true, 'nullable' => false, 'default' => 3],
                     'Is Active')
-                ->addIndex($installer->getIdxName('raphaelrosello_blog_comment', ['comment_id']), ['comment_id'])
-                ->addIndex($installer->getIdxName('raphaelrosello_blog_comment', ['entity_id']), ['entity_id'])
+                ->addIndex($installer->getIdxName('rrosello_blog_comment', ['comment_id']), ['comment_id'])
+                ->addIndex($installer->getIdxName('rrosello_blog_comment', ['entity_id']), ['entity_id'])
                 ->addForeignKey(
-                    $installer->getFkName('raphaelrosello_blog_comment', 'entity_id', 'customer_entity', 'entity_id'),
+                    $installer->getFkName('rrosello_blog_comment', 'entity_id', 'customer_entity', 'entity_id'),
                     'entity_id',
                     $installer->getTable('customer_entity'),
                     'entity_id',
                     Table::ACTION_CASCADE
                 )->addForeignKey(
-                    $installer->getFkName('raphaelrosello_blog_comment', 'post_id', 'raphaelrosello_blog_post', 'post_id'),
+                    $installer->getFkName('rrosello_blog_comment', 'post_id', 'rrosello_blog_post', 'post_id'),
                     'post_id',
-                    $installer->getTable('raphaelrosello_blog_post'),
+                    $installer->getTable('rrosello_blog_post'),
                     'post_id',
                     Table::ACTION_CASCADE
                 );

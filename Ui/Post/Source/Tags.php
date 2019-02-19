@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Ui\Post\Source;
+namespace Rrosello\Blog\Ui\Post\Source;
 
 
 use Magento\Framework\Option\ArrayInterface;
-use Raphaelrosello\Blog\Model\ResourceModel\Tag\Collection as TagCollectionFactory;
+use Rrosello\Blog\Model\ResourceModel\Tag\Collection as TagCollectionFactory;
 
 class Tags implements ArrayInterface
 {
@@ -24,7 +24,7 @@ class Tags implements ArrayInterface
     {
         $result = array();
 
-        /** @var \Raphaelrosello\Blog\Model\Tag $tag */
+        /** @var \Rrosello\Blog\Model\Tag $tag */
         foreach ($this->collectionFactory->getItems() as $tag) {
             $result[] = [
                 'label' => $tag->getName(),

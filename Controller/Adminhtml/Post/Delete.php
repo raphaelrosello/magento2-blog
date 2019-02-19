@@ -1,13 +1,13 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Controller\Adminhtml\Post;
+namespace Rrosello\Blog\Controller\Adminhtml\Post;
 
 
 use Magento\Backend\App\Action;
-use Raphaelrosello\Blog\Api\Data\PostInterface;
-use Raphaelrosello\Blog\Api\PostRepositoryInterface;
-use Raphaelrosello\Blog\Model\Post;
+use Rrosello\Blog\Api\Data\PostInterface;
+use Rrosello\Blog\Api\PostRepositoryInterface;
+use Rrosello\Blog\Model\Post;
 
 class Delete extends Action
 {
@@ -58,7 +58,7 @@ class Delete extends Action
      */
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('Raphaelrosello_Blog::delete');
+        return $this->_authorization->isAllowed('Rrosello_Blog::delete');
     }
 
 }

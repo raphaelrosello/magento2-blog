@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Block\Post;
+namespace Rrosello\Blog\Block\Post;
 
 
 use Magento\Framework\Api\SearchCriteriaBuilder;
@@ -9,8 +9,8 @@ use Magento\Framework\Api\SortOrder;
 use Magento\Framework\Api\SortOrderBuilder;
 use Magento\Framework\DataObject\IdentityInterface;
 use Magento\Framework\View\Element\Template;
-use Raphaelrosello\Blog\Api\PostRepositoryInterface;
-use Raphaelrosello\Blog\Model\Post;
+use Rrosello\Blog\Api\PostRepositoryInterface;
+use Rrosello\Blog\Model\Post;
 
 class PostList extends Template implements IdentityInterface
 {

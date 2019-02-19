@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Model;
+namespace Rrosello\Blog\Model;
 
 
 use Magento\Framework\File\UploaderFactory;

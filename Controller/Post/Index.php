@@ -1,14 +1,14 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Controller\Post;
+namespace Rrosello\Blog\Controller\Index;
 
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\Controller\Result\ForwardFactory;
 use Magento\Framework\View\Result\PageFactory;
-use Raphaelrosello\Blog\Api\PostRepositoryInterface;
+use Rrosello\Blog\Api\PostRepositoryInterface;
 
 class Index extends Action
 {

@@ -5,7 +5,7 @@
         <arguments>
             <argument name="routerList" xsi:type="array">
                 <item name="blog" xsi:type="array">
-                    <item name="class" xsi:type="string">Raphaelrosello\Blog\Controller\Router</item>
+                    <item name="class" xsi:type="string">Rrosello\Blog\Controller\Router</item>
                     <item name="disable" xsi:type="boolean">false</item>
                     <item name="sortOrder" xsi:type="string">70</item>
                 </item>

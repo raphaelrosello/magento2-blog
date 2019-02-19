@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Model\Post;
+namespace Rrosello\Blog\Model\Post;
 
 
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Store\Model\StoreManagerInterface;
-use Raphaelrosello\Blog\Model\ResourceModel\Post\CollectionFactory as PostCollectionFactory;
+use Rrosello\Blog\Model\ResourceModel\Post\CollectionFactory as PostCollectionFactory;
 
 class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 {
@@ -72,7 +72,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         }
 
         $items = $this->collection->getItems();
-        /** @var $post \Raphaelrosello\Blog\Model\Post */
+        /** @var $post \Rrosello\Blog\Model\Post */
         foreach ($items as $post) {
             $postData = $post->getData();
             $postImage = $post['image'];

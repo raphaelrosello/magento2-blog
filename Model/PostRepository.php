@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Model;
+namespace Rrosello\Blog\Model;
 
 
 use Magento\Framework\Api\SearchCriteria\CollectionProcessor;
@@ -9,16 +9,16 @@ use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
-use Raphaelrosello\Blog\Api\Data\PostInterface;
-use Raphaelrosello\Blog\Api\Data\PostSearchInterfaceFactory;
-use Raphaelrosello\Blog\Api\PostRepositoryInterface;
-use Raphaelrosello\Blog\Model\ResourceModel\Post as PostResource;
-use Raphaelrosello\Blog\Model\ResourceModel\Post\CollectionFactory as PostCollectionFactory;
+use Rrosello\Blog\Api\Data\PostInterface;
+use Rrosello\Blog\Api\Data\PostSearchInterfaceFactory;
+use Rrosello\Blog\Api\PostRepositoryInterface;
+use Rrosello\Blog\Model\ResourceModel\Post as PostResource;
+use Rrosello\Blog\Model\ResourceModel\Post\CollectionFactory as PostCollectionFactory;
 
 class PostRepository implements PostRepositoryInterface
 {
     /**
-     * @var \Raphaelrosello\Blog\Model\ResourceModel\Post
+     * @var \Rrosello\Blog\Model\ResourceModel\Post
      */
     protected $postResource;
 

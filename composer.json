@@ -1,5 +1,5 @@
 {
-    "name": "raphaelrosello/module-blog",
+    "name": "rrosello/module-blog",
     "description": "",
     "type": "magento2-module",
     "license": "proprietary",
@@ -16,7 +16,7 @@
             "registration.php"
         ],
         "psr-4": {
-            "Raphaelrosello\\Blog\\": ""
+            "Rrosello\\Blog\\": ""
         }
     }
 }

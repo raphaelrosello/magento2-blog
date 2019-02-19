@@ -2,7 +2,7 @@ define([
     'knockout',
     'jquery',
     'Magento_Ui/js/form/element/abstract',
-    'Raphaelrosello_Blog/js/lib/tokenize2'
+    'Rrosello_Blog/js/lib/tokenize2'
 ], function (ko, $, Abstract) {
     'use strict';
 

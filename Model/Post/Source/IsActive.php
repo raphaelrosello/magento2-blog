@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Model\Post\Source;
+namespace Rrosello\Blog\Model\Post\Source;
 
 
 use Magento\Framework\Data\OptionSourceInterface;
-use Raphaelrosello\Blog\Model\Post;
+use Rrosello\Blog\Model\Post;
 
 class IsActive implements OptionSourceInterface
 {

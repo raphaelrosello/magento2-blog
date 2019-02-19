@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Controller\Adminhtml\Post;
+namespace Rrosello\Blog\Controller\Adminhtml\Post;
 
 
 use Magento\Backend\App\Action;
@@ -9,10 +9,10 @@ use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\InputException;
 use Magento\Framework\Exception\StateException;
 use Psr\Log\LoggerInterface;
-use Raphaelrosello\Blog\Api\PostRepositoryInterface;
-use Raphaelrosello\Blog\Model\ImageUploader;
-use Raphaelrosello\Blog\Model\Post;
-use Raphaelrosello\Blog\Model\PostFactory;
+use Rrosello\Blog\Api\PostRepositoryInterface;
+use Rrosello\Blog\Model\ImageUploader;
+use Rrosello\Blog\Model\Post;
+use Rrosello\Blog\Model\PostFactory;
 
 class Save extends Action
 {

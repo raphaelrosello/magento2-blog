@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Controller\Adminhtml\Post;
+namespace Rrosello\Blog\Controller\Adminhtml\Post;
 
 
 use Magento\Backend\App\Action;
@@ -34,7 +34,7 @@ class Index extends Action
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
 
-        $resultPage->setActiveMenu('Raphaelrosello_Blog::post');
+        $resultPage->setActiveMenu('Rrosello_Blog::post');
         $resultPage->addBreadcrumb('Blog Posts', 'Blog Posts');
         $resultPage->addBreadcrumb('Manage Blog Posts', 'Manage Blog Posts');
         $resultPage->getConfig()->getTitle()->prepend('Blog Posts');
@@ -44,7 +44,7 @@ class Index extends Action
 
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('Raphaelrosello_Blog::post');
+        return $this->_authorization->isAllowed('Rrosello_Blog::post');
 
     }
 

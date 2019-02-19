@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Api\Data;
+namespace Rrosello\Blog\Api\Data;
 
 
 interface PostInterface

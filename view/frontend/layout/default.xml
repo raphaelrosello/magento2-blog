@@ -2,12 +2,14 @@
 
 <page layout="2columns-right" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="sidebar.additional">
-            <block class="Raphaelrosello\Blog\Block\Post\Featured" name="blog.featured"
-                   template="Raphaelrosello_Blog::post/featured.phtml" >
+        <referenceBlock name="footer_links">
+            <block class="Magento\Framework\View\Element\Html\Link\Current" name="blog">
+                <arguments>
+                    <argument name="label" xsi:type="string">Blog</argument>
+                    <argument name="path" xsi:type="string">blog</argument>
+                </arguments>
             </block>
-        </referenceContainer>
+        </referenceBlock>
 
-        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
     </body>
 </page>

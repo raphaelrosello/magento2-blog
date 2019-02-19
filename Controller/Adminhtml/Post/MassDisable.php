@@ -1,14 +1,14 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Controller\Adminhtml\Post;
+namespace Rrosello\Blog\Controller\Adminhtml\Post;
 
 
 use Magento\Backend\App\Action;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Ui\Component\MassAction\Filter;
-use Raphaelrosello\Blog\Api\PostRepositoryInterface;
-use Raphaelrosello\Blog\Model\ResourceModel\Post\CollectionFactory;
+use Rrosello\Blog\Api\PostRepositoryInterface;
+use Rrosello\Blog\Model\ResourceModel\Post\CollectionFactory;
 
 class MassDisable extends Action
 {

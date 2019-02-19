@@ -5,21 +5,21 @@
     <!-- Post Service -->
 
     <route url="/V1/blog/post/:post_id" method="GET">
-        <service class="Raphaelrosello\Blog\Api\PostRepositoryInterface" method="getById"/>
+        <service class="Rrosello\Blog\Api\PostRepositoryInterface" method="getById"/>
         <resources>
             <resource ref="anonymous" />
         </resources>
     </route>
 
     <route url="/V1/blog/post/search" method="GET">
-        <service class="Raphaelrosello\Blog\Api\PostRepositoryInterface" method="getList"/>
+        <service class="Rrosello\Blog\Api\PostRepositoryInterface" method="getList"/>
         <resources>
             <resource ref="anonymous" />
         </resources>
     </route>
 
     <route url="/V1/blog/post/save" method="POST">
-        <service class="Raphaelrosello\Blog\Api\PostRepositoryInterface" method="save"/>
+        <service class="Rrosello\Blog\Api\PostRepositoryInterface" method="save"/>
         <resources>
             <resource ref="anonymous" />
         </resources>

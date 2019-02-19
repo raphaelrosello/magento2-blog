@@ -1,13 +1,13 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Block\Post;
+namespace Rrosello\Blog\Block\Post;
 
 
 use Magento\Framework\DataObject\IdentityInterface;
 use Magento\Framework\View\Element\Template;
-use Raphaelrosello\Blog\Api\Data\PostInterface;
-use Raphaelrosello\Blog\Api\PostRepositoryInterface;
+use Rrosello\Blog\Api\Data\PostInterface;
+use Rrosello\Blog\Api\PostRepositoryInterface;
 
 class View extends Template implements IdentityInterface
 {
@@ -49,7 +49,7 @@ class View extends Template implements IdentityInterface
 
     public function getIdentities()
     {
-        return [\Raphaelrosello\Blog\Model\Post::CACHE_TAG . '_' . $this->post->getPostId()];
+        return [\Rrosello\Blog\Model\Post::CACHE_TAG . '_' . $this->post->getPostId()];
     }
 
 

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Model\ResourceModel\Post;
+namespace Rrosello\Blog\Model\ResourceModel\Post;
 
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
@@ -13,8 +13,8 @@ class Collection extends AbstractCollection
     protected function _construct()
     {
         $this->_init(
-            'Raphaelrosello\Blog\Model\Post',
-            'Raphaelrosello\Blog\Model\ResourceModel\Post'
+            'Rrosello\Blog\Model\Post',
+            'Rrosello\Blog\Model\ResourceModel\Post'
         );
     }
 

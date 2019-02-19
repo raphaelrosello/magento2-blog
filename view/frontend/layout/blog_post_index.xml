@@ -4,7 +4,7 @@
     <update handle="blog.list" />
     <body>
         <referenceContainer name="content">
-            <block class="Raphaelrosello\Blog\Block\Post\View" name="blog.view" template="Raphaelrosello_Blog::post/view.phtml" />
+            <block class="Rrosello\Blog\Block\Post\View" name="blog.view" template="Rrosello::post/view.phtml" />
         </referenceContainer>
     </body>
 </page>

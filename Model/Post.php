@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Model;
+namespace Rrosello\Blog\Model;
 
 
 use Magento\Framework\DataObject\IdentityInterface;
 use Magento\Framework\Model\AbstractModel;
-use Raphaelrosello\Blog\Api\Data\PostInterface;
+use Rrosello\Blog\Api\Data\PostInterface;
 
 class Post extends AbstractModel implements PostInterface, IdentityInterface
 {
@@ -37,7 +37,7 @@ class Post extends AbstractModel implements PostInterface, IdentityInterface
      */
     protected function _construct()
     {
-        $this->_init('Raphaelrosello\Blog\Model\ResourceModel\Post');
+        $this->_init('Rrosello\Blog\Model\ResourceModel\Post');
     }
 
     public function getIdentities()

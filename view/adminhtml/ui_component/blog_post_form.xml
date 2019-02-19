@@ -9,10 +9,10 @@
     </argument>
     <settings>
         <buttons>
-            <button name="save_and_continue" class="Raphaelrosello\Blog\Block\Adminhtml\Post\Edit\SaveAndContinueButton"/>
-            <button name="save" class="Raphaelrosello\Blog\Block\Adminhtml\Post\Edit\SaveButton"/>
-            <button name="delete" class="Raphaelrosello\Blog\Block\Adminhtml\Post\Edit\DeleteButton"/>
-            <button name="back" class="Raphaelrosello\Blog\Block\Adminhtml\Post\Edit\BackButton"/>
+            <button name="save_and_continue" class="Rrosello\Blog\Block\Adminhtml\Post\Edit\SaveAndContinueButton"/>
+            <button name="save" class="Rrosello\Blog\Block\Adminhtml\Post\Edit\SaveButton"/>
+            <button name="delete" class="Rrosello\Blog\Block\Adminhtml\Post\Edit\DeleteButton"/>
+            <button name="back" class="Rrosello\Blog\Block\Adminhtml\Post\Edit\BackButton"/>
         </buttons>
         <namespace>blog_post_form</namespace>
         <dataScope>data</dataScope>
@@ -29,7 +29,7 @@
         <settings>
             <submitUrl path="blog/post/save"/>
         </settings>
-        <dataProvider class="Raphaelrosello\Blog\Model\Post\DataProvider" name="post_form_data_source">
+        <dataProvider class="Rrosello\Blog\Model\Post\DataProvider" name="post_form_data_source">
             <settings>
                 <requestFieldName>post_id</requestFieldName>
                 <primaryFieldName>post_id</primaryFieldName>
@@ -151,10 +151,10 @@
             </argument>
             <field name="tag_ids">
                 <argument name="data" xsi:type="array">
-                    <item name="options" xsi:type="object">Raphaelrosello\Blog\Ui\Post\Source\Tags</item>
+                    <item name="options" xsi:type="object">Rrosello\Blog\Ui\Post\Source\Tags</item>
                     <item name="config" xsi:type="array">
-                        <item name="component" xsi:type="string">Raphaelrosello_Blog/js/post/form/tags</item>
-                        <item name="elementTmpl" xsi:type="string">Raphaelrosello_Blog/post/form/tags</item>
+                        <item name="component" xsi:type="string">Rrosello_Blog/js/post/form/tags</item>
+                        <item name="elementTmpl" xsi:type="string">Rrosello_Blog/post/form/tags</item>
                         <item name="dataType" xsi:type="string">string</item>
                         <item name="formElement" xsi:type="string">multiselect</item>
                         <item name="label" xsi:type="string" translate="true">Tags</item>
@@ -180,7 +180,7 @@
             <formElements>
                 <multiselect>
                     <settings>
-                        <options class="Raphaelrosello\Blog\Ui\Component\Listing\Column\Post\Options"/>
+                        <options class="Rrosello\Blog\Ui\Component\Listing\Column\Post\Options"/>
                     </settings>
                 </multiselect>
             </formElements>
@@ -193,7 +193,7 @@
                     <item name="label" xsi:type="string" translate="true">Image</item>
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
-                    <item name="previewTmpl" xsi:type="string">Raphaelrosello_Blog/image-preview</item>
+                    <item name="previewTmpl" xsi:type="string">Rrosello_Blog/image-preview</item>
                     <item name="required" xsi:type="boolean">false</item>
                     <item name="sortOrder" xsi:type="number">40</item>
                     <item name="notice" xsi:type="string" translate="true">Allowed file types: jpeg, gif, png.</item>

@@ -1,13 +1,13 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Controller\Adminhtml\Post;
+namespace Rrosello\Blog\Controller\Adminhtml\Post;
 
 
 use Magento\Backend\App\Action;
-use Raphaelrosello\Blog\Api\PostRepositoryInterface;
-use Raphaelrosello\Blog\Model\Post;
-use Raphaelrosello\Blog\Model\PostFactory;
+use Rrosello\Blog\Api\PostRepositoryInterface;
+use Rrosello\Blog\Model\Post;
+use Rrosello\Blog\Model\PostFactory;
 
 class Edit extends Action
 {
@@ -66,7 +66,7 @@ class Edit extends Action
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
         $resultPage
-            ->setActiveMenu('Raphaelrosello_Blog::post')
+            ->setActiveMenu('Rrosello_Blog::post')
             ->addBreadcrumb('Blog', 'Blog')
             ->addBreadcrumb('Manage Blog Posts', 'Manage Blog Posts');
 

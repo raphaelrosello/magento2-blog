@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Model;
+namespace Rrosello\Blog\Model;
 
 
 use Magento\Framework\DataObject\IdentityInterface;
 use Magento\Framework\Model\AbstractModel;
-use Raphaelrosello\Blog\Api\Data\TagInterface;
+use Rrosello\Blog\Api\Data\TagInterface;
 
 class Tag extends AbstractModel implements TagInterface, IdentityInterface
 {
@@ -33,7 +33,7 @@ class Tag extends AbstractModel implements TagInterface, IdentityInterface
      */
     protected function _construct()
     {
-        $this->_init('Raphaelrosello\Blog\Model\ResourceModel\Tag');
+        $this->_init('Rrosello\Blog\Model\ResourceModel\Tag');
     }
 
     public function getIdentities()

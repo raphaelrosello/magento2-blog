@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Block\Adminhtml\Post\Edit;
+namespace Rrosello\Blog\Block\Adminhtml\Post\Edit;
 
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Ui\Component\Listing\Column;
+namespace Rrosello\Blog\Ui\Component\Listing\Column;
 
 
 use Magento\Framework\UrlInterface;

@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Api;
+namespace Rrosello\Blog\Api;
 
 
-use Raphaelrosello\Blog\Api\Data\PostInterface;
+use Rrosello\Blog\Api\Data\PostInterface;
 
 interface PostRepositoryInterface
 {
@@ -12,19 +12,19 @@ interface PostRepositoryInterface
     /**
      * Save blog
      *
-     * @param \Raphaelrosello\Blog\Api\Data\PostInterface $post
+     * @param \Rrosello\Blog\Api\Data\PostInterface $post
      * @param bool $saveOptions
-     * @return \Raphaelrosello\Blog\Api\Data\PostInterface
+     * @return \Rrosello\Blog\Api\Data\PostInterface
      * @throws \Magento\Framework\Exception\InputException
      * @throws \Magento\Framework\Exception\StateException
      * @throws \Magento\Framework\Exception\CouldNotSaveException
      */
-    public function save(\Raphaelrosello\Blog\Api\Data\PostInterface $post, $saveOptions = false);
+    public function save(\Rrosello\Blog\Api\Data\PostInterface $post, $saveOptions = false);
 
     /**
      * Get Blog by ID
      * @param int $post_id
-     * @return \Raphaelrosello\Blog\Api\Data\PostInterface
+     * @return \Rrosello\Blog\Api\Data\PostInterface
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getById($post_id);
@@ -33,7 +33,7 @@ interface PostRepositoryInterface
      * Get post by URL key
      *
      * @param string $url_key
-     * @return \Raphaelrosello\Blog\Api\Data\PostInterface
+     * @return \Rrosello\Blog\Api\Data\PostInterface
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getByUrlKey($url_key);
@@ -56,7 +56,7 @@ interface PostRepositoryInterface
 
     /**
      * @param \Magento\Framework\Api\SearchCriteriaInterface $searchCriteria
-     * @return \Raphaelrosello\Blog\Api\Data\PostSearchInterface
+     * @return \Rrosello\Blog\Api\Data\PostSearchInterface
      */
     public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria);
 

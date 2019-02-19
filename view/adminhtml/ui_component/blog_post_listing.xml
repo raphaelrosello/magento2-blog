@@ -339,7 +339,7 @@
         </column>
         <column name="is_active">
             <argument name="data" xsi:type="array">
-                <item name="options" xsi:type="object">Raphaelrosello\Blog\Model\Post\Source\IsActive</item>
+                <item name="options" xsi:type="object">Rrosello\Blog\Model\Post\Source\IsActive</item>
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">select</item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
@@ -359,7 +359,7 @@
                 </item>
             </argument>
         </column>
-        <actionsColumn name="actions" class="Raphaelrosello\Blog\Ui\Component\Listing\Column\PostActions">
+        <actionsColumn name="actions" class="Rrosello\Blog\Ui\Component\Listing\Column\PostActions">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="resizeEnabled" xsi:type="boolean">false</item>

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Raphaelrosello\Blog\Setup;
+namespace Rrosello\Blog\Setup;
 
 use Magento\Framework\Setup\UpgradeSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
