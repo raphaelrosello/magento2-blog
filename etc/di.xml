@@ -2,9 +2,12 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Rrosello\Blog\Api\Data\PostInterface" type="Rrosello\Blog\Model\Post" />
+    <preference for="Rrosello\Blog\Api\Data\CategoryInterface" type="Rrosello\Blog\Model\Category" />
     <preference for="Rrosello\Blog\Api\Data\TagInterface" type="Rrosello\Blog\Model\Tag" />
     <preference for="Rrosello\Blog\Api\Data\PostSearchInterface" type="Magento\Framework\Api\SearchResults" />
+    <preference for="Rrosello\Blog\Api\Data\CategorySearchInterface" type="Magento\Framework\Api\SearchResults" />
     <preference for="Rrosello\Blog\Api\PostRepositoryInterface" type="Rrosello\Blog\Model\PostRepository" />
+    <preference for="Rrosello\Blog\Api\CategoryRepositoryInterface" type="Rrosello\Blog\Model\CategoryRepository" />
 
     <virtualType name="BlogGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
         <arguments>
@@ -20,16 +23,35 @@
             <argument name="filterPool" xsi:type="object" shared="false">BlogGridFilterPool</argument>
         </arguments>
     </virtualType>
+    <virtualType name="CategoryGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Rrosello\Blog\Model\ResourceModel\Category\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">BlogGridFilterPool</argument>
+        </arguments>
+    </virtualType>
     <virtualType name="Rrosello\Blog\Model\ResourceModel\Post\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
             <argument name="mainTable" xsi:type="string">rrosello_blog_post</argument>
             <argument name="resourceModel" xsi:type="string">Rrosello\Blog\Model\ResourceModel\Post</argument>
         </arguments>
     </virtualType>
+    <virtualType name="Rrosello\Blog\Model\ResourceModel\Category\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">rrosello_blog_category</argument>
+            <argument name="resourceModel" xsi:type="string">Rrosello\Blog\Model\ResourceModel\Category</argument>
+        </arguments>
+    </virtualType>
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
                 <item name="blog_post_listing_data_source" xsi:type="string">Rrosello\Blog\Model\ResourceModel\Post\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="blog_category_listing_data_source" xsi:type="string">Rrosello\Blog\Model\ResourceModel\Category\Grid\Collection</item>
             </argument>
         </arguments>
     </type>

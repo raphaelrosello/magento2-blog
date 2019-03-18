@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Rrosello_Blog::blog" title="Blog" module="Rrosello_Blog" sortOrder="50" parent="Magento_Backend::content" resource="Rrosello_Blog::blog" />
+        <add id="Rrosello_Blog::blog" title="Blog by Rrosello" module="Rrosello_Blog" sortOrder="50" parent="Magento_Backend::content" resource="Rrosello_Blog::blog" />
         <add id="Rrosello_Blog::post" title="Posts" module="Rrosello_Blog" sortOrder="0" parent="Rrosello_Blog::blog" action="blog/post" resource="Rrosello_Blog::post"/>
+        <add id="Rrosello_Blog::category" title="Category" module="Rrosello_Blog" sortOrder="10" parent="Rrosello_Blog::blog" action="blog/category" resource="Rrosello_Blog::category"/>
     </menu>
 </config>

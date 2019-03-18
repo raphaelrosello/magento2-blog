@@ -9,6 +9,10 @@
                             <resource id="Rrosello_Blog::save" title="Save Post" sortOrder="10" />
                             <resource id="Rrosello_Blog::post_delete" title="Delete Post" sortOrder="20" />
                         </resource>
+                        <resource id="Rrosello_Blog::category" title="Blog Category" sortOrder="50">
+                            <!--<resource id="Rrosello_Blog::save" title="Save Post" sortOrder="10" />
+                            <resource id="Rrosello_Blog::post_delete" title="Delete Post" sortOrder="20" />-->
+                        </resource>
                     </resource>
                 </resource>
             </resource>

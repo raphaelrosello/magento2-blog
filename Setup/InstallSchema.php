@@ -92,9 +92,10 @@ class InstallSchema implements InstallSchemaInterface
                     ['nullable' => false, 'default' => Table::TIMESTAMP_INIT_UPDATE],
                     'Updated At');
 
+            $installer->getConnection()->createTable($table);
+
         }
 
-        $installer->getConnection()->createTable($table);
 
 
         // Tag table
@@ -131,9 +132,11 @@ class InstallSchema implements InstallSchemaInterface
                     null,
                     ['nullable' => false, 'default' => Table::TIMESTAMP_INIT_UPDATE],
                     'Created At');
+
+            $installer->getConnection()->createTable($table);
+
         }
 
-        $installer->getConnection()->createTable($table);
 
         // Category table
         if (!$installer->tableExists('rrosello_blog_category')) {
@@ -200,9 +203,11 @@ class InstallSchema implements InstallSchemaInterface
                     null,
                     ['nullable' => false, 'default' => Table::TIMESTAMP_INIT],
                     'Created At');
+
+            $installer->getConnection()->createTable($table);
+
         }
 
-        $installer->getConnection()->createTable($table);
 
         // Post_Category table
         if (!$installer->tableExists('rrosello_blog_post_category')) {
@@ -241,9 +246,11 @@ class InstallSchema implements InstallSchemaInterface
                     ['type' => AdapterInterface::INDEX_TYPE_UNIQUE]
                 );
 
+            $installer->getConnection()->createTable($table);
+
+
         }
 
-        $installer->getConnection()->createTable($table);
 
         // Post_Tag table
         if (!$installer->tableExists('rrosello_blog_post_tag')) {
@@ -284,9 +291,11 @@ class InstallSchema implements InstallSchemaInterface
                     ['post_id', 'tag_id'],
                     ['type' => AdapterInterface::INDEX_TYPE_UNIQUE]
                 );
+
+            $installer->getConnection()->createTable($table);
+
         }
 
-        $installer->getConnection()->createTable($table);
 
 
         if (!$installer->tableExists('rrosello_blog_comment')) {
@@ -358,6 +367,7 @@ class InstallSchema implements InstallSchemaInterface
                     'post_id',
                     Table::ACTION_CASCADE
                 );
+
             $installer->getConnection()->createTable($table);
         }
     }

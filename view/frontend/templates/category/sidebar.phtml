@@ -1,0 +1,11 @@
+<?php
+/** @var $block \Rrosello\Blog\Block\Category\CategoryList */ ?>
+
+<ul class="">
+    <?php /** @var $category \Rrosello\Blog\Api\Data\CategoryInterface */ ?>
+    <?php foreach ($block->getCategories() as $category): ?>
+        <li class="">
+            <a href="#"><?php echo $category->getName() ?></a>
+        </li>
+    <?php endforeach; ?>
+</ul>
