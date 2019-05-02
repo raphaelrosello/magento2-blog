@@ -7,6 +7,7 @@ namespace Rrosello\Blog\Controller;
 use Magento\Framework\App\ActionFactory;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\App\RouterInterface;
+use Magento\Framework\Exception\NotFoundException;
 use Magento\Framework\Url;
 use Rrosello\Blog\Api\PostRepositoryInterface;
 
@@ -36,7 +37,7 @@ class Router implements RouterInterface
      * Validate and match blog post and modify request
      *
      * @param RequestInterface $request
-     * @return \Magento\Framework\App\ActionInterface|null
+     * @return \Magento\Framework\App\ActionInterface
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function match(RequestInterface $request)
@@ -44,16 +45,16 @@ class Router implements RouterInterface
         $url_key = trim($request->getPathInfo(), '/blog/');
         $url_key = rtrim($url_key, '/');
 
-        $post = $this->postRepository->getByUrlKey($url_key);
-
-        if(!$post->getPostId()) {
-            return null;
+        try {
+            $post = $this->postRepository->getByUrlKey($url_key);
+        } catch (NotFoundException $exception) {
+            return $this->actionFactory->create(\Magento\Framework\App\Action\Redirect::class);
         }
 
         $request
             ->setModuleName('blog')
             ->setControllerName('post')
-            ->setActionName('index')
+            ->setActionName('view')
             ->setParam('post_id', $post->getPostId());
 
 

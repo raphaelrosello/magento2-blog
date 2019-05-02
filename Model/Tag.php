@@ -5,10 +5,9 @@ namespace Rrosello\Blog\Model;
 
 
 use Magento\Framework\DataObject\IdentityInterface;
-use Magento\Framework\Model\AbstractModel;
 use Rrosello\Blog\Api\Data\TagInterface;
 
-class Tag extends AbstractModel implements TagInterface, IdentityInterface
+class Tag extends AbstractBlogModel implements TagInterface, IdentityInterface
 {
 
     /**

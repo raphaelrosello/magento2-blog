@@ -10,6 +10,7 @@ use Magento\Framework\Api\SortOrderBuilder;
 use Magento\Framework\DataObject\IdentityInterface;
 use Magento\Framework\View\Element\Template;
 use Rrosello\Blog\Api\PostRepositoryInterface;
+use Rrosello\Blog\Helper\Data as BlogHelperData;
 use Rrosello\Blog\Model\Post;
 
 class PostList extends Template implements IdentityInterface
@@ -29,16 +30,23 @@ class PostList extends Template implements IdentityInterface
      */
     protected $searchCriteriaBuilder;
 
+    /**
+     * @var BlogHelperData
+     */
+    protected $blogHelperData;
+
     public function __construct(
         PostRepositoryInterface $postRepository,
         SortOrderBuilder $sortOrderBuilder,
         SearchCriteriaBuilder $searchCriteriaBuilder,
+        BlogHelperData $blogHelperData,
         Template\Context $context,
         array $data = [])
     {
         $this->postRepository = $postRepository;
         $this->sortOrderBuilder = $sortOrderBuilder;
         $this->searchCriteriaBuilder = $searchCriteriaBuilder;
+        $this->blogHelperData = $blogHelperData;
         parent::__construct($context, $data);
     }
 
@@ -78,5 +86,11 @@ class PostList extends Template implements IdentityInterface
                 ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA).'blog/image/';
         return $mediaUrl;
     }
+
+    public function getHelperData()
+    {
+        return $this->blogHelperData;
+    }
+
 
 }

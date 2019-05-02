@@ -34,11 +34,15 @@ class CategoryList extends Template
 
     public function getCategories()
     {
-        $categories = $this->categoryRepository->getList(
-            $this->searchCriteriaBuilder->create()
-        );
+        if (!$this->hasData('categories')) {
+            $categories = $this->categoryRepository->getList(
+                $this->searchCriteriaBuilder->create()
+            )->getItems();
 
-        return $categories;
+            $this->setData('categories', $categories);
+        }
+
+        return $this->getData('categories');
     }
 
 }

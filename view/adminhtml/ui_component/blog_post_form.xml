@@ -37,9 +37,17 @@
         </dataProvider>
     </dataSource>
     <fieldset name="general">
-        <settings>
-            <label/>
-        </settings>
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="align" xsi:type="string">left</item>
+            </item>
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/components/fieldset</item>
+                <item name="config" xsi:type="array">
+                    <item name="template" xsi:type="string">Rrosello_Blog/post/form/fieldset</item>
+                </item>
+            </item>
+        </argument>
         <field name="is_active" sortOrder="10" formElement="checkbox">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -49,7 +57,7 @@
             </argument>
             <settings>
                 <dataType>boolean</dataType>
-                <label translate="true">Enable Page</label>
+                <label translate="true">Enable Post</label>
                 <dataScope>is_active</dataScope>
             </settings>
             <formElements>
@@ -142,49 +150,6 @@
                 </checkbox>
             </formElements>
         </field>
-        <fieldset name="tags">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="collapsible" xsi:type="boolean">false</item>
-                    <item name="label" xsi:type="string" translate="true">Tags</item>
-                </item>
-            </argument>
-            <field name="tag_ids">
-                <argument name="data" xsi:type="array">
-                    <item name="options" xsi:type="object">Rrosello\Blog\Ui\Post\Source\Tags</item>
-                    <item name="config" xsi:type="array">
-                        <item name="component" xsi:type="string">Rrosello_Blog/js/post/form/tags</item>
-                        <item name="elementTmpl" xsi:type="string">Rrosello_Blog/post/form/tags</item>
-                        <item name="dataType" xsi:type="string">string</item>
-                        <item name="formElement" xsi:type="string">multiselect</item>
-                        <item name="label" xsi:type="string" translate="true">Tags</item>
-                    </item>
-                </argument>
-            </field>
-        </fieldset>
-        <!--<field name="store_id" formElement="multiselect">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="source" xsi:type="string">block</item>
-                    <item name="default" xsi:type="number">0</item>
-                </item>
-            </argument>
-            <settings>
-                <validation>
-                    <rule name="required-entry" xsi:type="boolean">true</rule>
-                </validation>
-                <dataType>int</dataType>
-                <label translate="true">Store View</label>
-                <dataScope>store_id</dataScope>
-            </settings>
-            <formElements>
-                <multiselect>
-                    <settings>
-                        <options class="Rrosello\Blog\Ui\Component\Listing\Column\Post\Options"/>
-                    </settings>
-                </multiselect>
-            </formElements>
-        </field>-->
         <field name="image" formElement="fileUploader">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -223,6 +188,44 @@
                     </settings>
                 </wysiwyg>
             </formElements>
+        </field>
+    </fieldset>
+    <fieldset name="settings">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="align" xsi:type="string">right</item>
+            </item>
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/components/fieldset</item>
+                <item name="config" xsi:type="array">
+                    <item name="template" xsi:type="string">Rrosello_Blog/post/form/fieldset</item>
+                </item>
+            </item>
+        </argument>
+        <field name="category_ids">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Rrosello\Blog\Model\Category\Source\Categories</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataScope" xsi:type="string">category_ids</item>
+                    <item name="dataType" xsi:type="string">number</item>
+                    <item name="formElement" xsi:type="string">multiselect</item>
+                    <item name="label" xsi:type="string" translate="true">Categories</item>
+                </item>
+            </argument>
+        </field>
+        <field name="tags">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Rrosello\Blog\Ui\Post\Source\Tags</item>
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Rrosello_Blog/js/post/form/tags</item>
+                    <item name="elementTmpl" xsi:type="string">Rrosello_Blog/post/form/tags</item>
+                    <item name="dataScope" xsi:type="string">tag_id</item>
+                    <item name="dataType" xsi:type="string">string</item>
+                    <item name="formElement" xsi:type="string">multiselect</item>
+                    <item name="label" xsi:type="string" translate="true">Tags</item>
+                    <item name="notice" xsi:type="string" translate="true">Separated by comma or new line character</item>
+                </item>
+            </argument>
         </field>
     </fieldset>
 </form>

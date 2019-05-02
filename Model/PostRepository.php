@@ -9,6 +9,7 @@ use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Framework\Exception\NotFoundException;
 use Rrosello\Blog\Api\Data\PostInterface;
 use Rrosello\Blog\Api\Data\PostSearchInterfaceFactory;
 use Rrosello\Blog\Api\PostRepositoryInterface;
@@ -27,10 +28,19 @@ class PostRepository implements PostRepositoryInterface
      */
     protected $postFactory;
 
+    /**
+     * @var PostCollectionFactory
+     */
     protected $collection;
 
+    /**
+     * @var PostSearchInterfaceFactory
+     */
     protected $postSearchFactory;
 
+    /**
+     * @var CollectionProcessor
+     */
     private $collectionProcessor;
 
     public function __construct(
@@ -87,7 +97,7 @@ class PostRepository implements PostRepositoryInterface
     /**
      * @param string $url_key
      * @return PostInterface|Post
-     * @throws NoSuchEntityException
+     * @throws NotFoundException
      */
     public function getByUrlKey($url_key)
     {
@@ -95,7 +105,7 @@ class PostRepository implements PostRepositoryInterface
         $this->postResource->load($post, $url_key, 'url_key');
 
         if(!$post->getId()) {
-            throw new NoSuchEntityException(__('Unable to find Post with url_key "%1"', $url_key));
+            throw new NotFoundException(__('Unable to find Post with url_key "%1"', $url_key));
         }
 
         return $post;
@@ -113,7 +123,7 @@ class PostRepository implements PostRepositoryInterface
 
         } catch (\Exception $exception) {
             throw new CouldNotDeleteException(__(
-                'Could not delete the page: %1',
+                'Could not delete the post: %1',
                 $exception->getMessage()
             ));
         }

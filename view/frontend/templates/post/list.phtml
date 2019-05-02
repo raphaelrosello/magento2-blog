@@ -1,25 +1,28 @@
 <?php
 /** @var $block \Rrosello\Blog\Block\Post\PostList */ ?>
+<?php $helper = $block->getHelperData() ?>
 
-<ul class="blog-post-list">
+<div class="blog-post-item">
     <?php /** @var $post \Rrosello\Blog\Api\Data\PostInterface */ ?>
     <?php foreach ($block->getPosts() as $post): ?>
-        <li class="blog-post-list-item">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <img class="img-thumbnail" style="width: 100px;" src="<?php echo $block->getMediaUrl().'/'.$post->getImage(); ?>" />
-                    </div>
-                    <div class="col-sm-8">
-                        <h3 class="blog-post-item-title">
-                            <a href="<?php echo $post->getUrlKey(); ?>"><?php echo $post->getTitle() ?></a>
-                        </h3>
-                        <div class="blog-post-item-meta">
-                            <?php echo $post->getCreatedAt() ?>
-                        </div>
-                    </div>
-                </div>
+        <div class="blog-post-item-image">
+            <a href="<?php echo $post->getUrlKey(); ?>">
+                <img src="<?php echo $block->getMediaUrl().$post->getImage(); ?>" />
+            </a>
+        </div>
+        <div class="blog-post-item-data">
+            <p><a href="#">Category</a></p>
+            <h3 class="blog-post-item-title">
+                <strong><a href="<?php echo $post->getUrlKey(); ?>"><?php echo $post->getTitle() ?></a></strong>
+            </h3>
+            <div>
+                <p><?php echo $helper->timeElapsed($post->getCreatedAt()) ?></p>
             </div>
-        </li>
+        </div>
+        <hr>
     <?php endforeach; ?>
-</ul>
+</div>
+<div class="pagination">
+    <button type="button">Older Post</button>
+    <button type="button">Newer Post</button>
+</div>

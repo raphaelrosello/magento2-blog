@@ -11,6 +11,7 @@ interface PostInterface
     CONST STORE_ID = 'store_id';
     CONST TITLE = 'title';
     CONST CONTENT = 'content';
+    CONST CATEGORY_IDS = 'category_ids';
     CONST AUTHOR_ID = 'author_id';
     CONST IS_ACTIVE = 'is_active';
     CONST IS_FEATURED = 'is_featured';
@@ -65,6 +66,17 @@ interface PostInterface
      * @return $this
      */
     public function setContent($content);
+
+    /**
+     * @return int[]|null
+     */
+    public function getCategoryIds();
+
+    /**
+     * @param int[] $category_ids
+     * @return $this
+     */
+    public function setCategoryIds($category_ids);
 
     /**
      * @return int

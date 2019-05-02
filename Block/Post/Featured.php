@@ -73,4 +73,12 @@ class Featured extends Template implements IdentityInterface
         return $this->getData('posts');
     }
 
+    public function getMediaUrl()
+    {
+        $mediaUrl = $this->_storeManager->getStore()
+                ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA).'blog/image/';
+
+        return $mediaUrl;
+    }
+
 }

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Rrosello\Blog\Controller\Index;
+namespace Rrosello\Blog\Controller\Post;
 
 
 use Magento\Framework\App\Action\Action;
@@ -10,7 +10,7 @@ use Magento\Framework\Controller\Result\ForwardFactory;
 use Magento\Framework\View\Result\PageFactory;
 use Rrosello\Blog\Api\PostRepositoryInterface;
 
-class Index extends Action
+class View extends Action
 {
 
     /**

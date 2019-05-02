@@ -106,7 +106,7 @@ class Edit extends Action
 
         $resultPage->getConfig()->getTitle()->prepend(__('Pages'));
         $resultPage->getConfig()->getTitle()
-            ->prepend($model->getPostId() ? $model->getTitle() : __('New Page'));
+            ->prepend($model->getPostId() ? $model->getTitle() : __('New Post'));
 
         return $resultPage;
     }

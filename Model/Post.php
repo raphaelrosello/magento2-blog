@@ -5,10 +5,9 @@ namespace Rrosello\Blog\Model;
 
 
 use Magento\Framework\DataObject\IdentityInterface;
-use Magento\Framework\Model\AbstractModel;
 use Rrosello\Blog\Api\Data\PostInterface;
 
-class Post extends AbstractModel implements PostInterface, IdentityInterface
+class Post extends AbstractBlogModel implements PostInterface, IdentityInterface
 {
 
     const STATUS_ENABLED = 1;
@@ -122,6 +121,20 @@ class Post extends AbstractModel implements PostInterface, IdentityInterface
     {
         $this->setData(self::CONTENT, $content);
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function getCategoryIds()
+    {
+        return $this->getData(self::CATEGORY_IDS);
+    }
+
+    public function setCategoryIds($category_ids)
+    {
+        $this->setData(self::CATEGORY_IDS, $category_ids);
+    }
+
 
     /**
      * @inheritdoc
@@ -267,7 +280,6 @@ class Post extends AbstractModel implements PostInterface, IdentityInterface
     {
         $this->setData(self::UPDATED_AT, $updated_at);
     }
-
 
 
 

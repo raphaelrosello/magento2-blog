@@ -5,10 +5,9 @@ namespace Rrosello\Blog\Model;
 
 
 use Magento\Framework\DataObject\IdentityInterface;
-use Magento\Framework\Model\AbstractModel;
 use Rrosello\Blog\Api\Data\CategoryInterface;
 
-class Category extends AbstractModel implements CategoryInterface, IdentityInterface
+class Category extends AbstractBlogModel implements CategoryInterface, IdentityInterface
 {
 
     const STATUS_ENABLED = 1;
