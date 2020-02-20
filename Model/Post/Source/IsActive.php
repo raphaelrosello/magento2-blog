@@ -22,11 +22,7 @@ class IsActive implements OptionSourceInterface
 
     public function toOptionArray()
     {
-        $options = [
-            'label' => '',
-            'value' => ''
-        ];
-
+        $options = [];
         $availableOptions = $this->post->getAvailableStatuses();
 
         foreach ($availableOptions as $key => $value) {
@@ -35,6 +31,13 @@ class IsActive implements OptionSourceInterface
                 'value' => $key
             ];
         }
+
+        array_walk(
+            $options,
+            function (&$option) {
+                $option['__disableTmpl'] = true;
+            }
+        );
 
         return $options;
     }
