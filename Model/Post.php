@@ -57,37 +57,12 @@ class Post extends AbstractBlogModel implements PostInterface, IdentityInterface
         return $this->getData(self::POST_ID);
     }
 
-
-    /**
-     * @inheritdoc
-     */
-    public function getPostId()
-    {
-        return $this->getData(self::POST_ID);
-    }
-
     /**
      * @inheritdoc
      */
     public function setPostId($post_id)
     {
         $this->setData(self::POST_ID, $post_id);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getStoreId()
-    {
-        return $this->getData(self::STORE_ID);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function setStoreId($store_id)
-    {
-        $this->setData(self::STORE_ID, $store_id);
     }
 
     /**

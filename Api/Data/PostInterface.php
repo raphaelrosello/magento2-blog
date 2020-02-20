@@ -8,7 +8,6 @@ interface PostInterface
 {
 
     CONST POST_ID = 'post_id';
-    CONST STORE_ID = 'store_id';
     CONST TITLE = 'title';
     CONST CONTENT = 'content';
     CONST CATEGORY_IDS = 'category_ids';
@@ -25,24 +24,13 @@ interface PostInterface
     /**
      * @return int
      */
-    public function getPostId();
+    public function getId();
 
     /**
-     * @param int $post_id
+     * @param int $id
      * @return $this
      */
-    public function setPostId($post_id);
-
-    /**
-     * @return int
-     */
-    public function getStoreId();
-
-    /**
-     * @param int $store_id
-     * @return $this
-     */
-    public function setStoreId($store_id);
+    public function setId($id);
 
     /**
      * @return string

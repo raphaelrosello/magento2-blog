@@ -83,7 +83,7 @@ class Edit extends Action
 
         if($post_id) {
             $model->load($post_id);
-            if (!$model->getPostId()) {
+            if (!$model->getId()) {
                 $this->messageManager->addErrorMessage('This post no longer exists.');
                 $resultRedirect = $this->resultRedirectFactory->create();
 
@@ -106,7 +106,7 @@ class Edit extends Action
 
         $resultPage->getConfig()->getTitle()->prepend(__('Pages'));
         $resultPage->getConfig()->getTitle()
-            ->prepend($model->getPostId() ? $model->getTitle() : __('New Post'));
+            ->prepend($model->getId() ? $model->getTitle() : __('New Post'));
 
         return $resultPage;
     }

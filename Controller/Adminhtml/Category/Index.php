@@ -11,6 +11,13 @@ class Index extends Action
 {
 
     /**
+     * Authorization level of a basic admin session
+     *
+     * @see _isAllowed()
+     */
+    const ADMIN_RESOURCE = 'Rrosello_Blog::categories';
+
+    /**
      * @var PageFactory
      */
     protected $resultPageFactory;
@@ -40,12 +47,6 @@ class Index extends Action
         $resultPage->getConfig()->getTitle()->prepend('Blog Categories');
 
         return $resultPage;
-    }
-
-    protected function _isAllowed()
-    {
-        return $this->_authorization->isAllowed('Rrosello_Blog::categories');
-
     }
 
 }

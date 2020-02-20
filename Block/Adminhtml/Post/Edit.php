@@ -68,7 +68,7 @@ class Edit extends \Magento\Backend\Block\Widget\Grid\Container
      */
     public function getHeaderText()
     {
-        if ($this->coreRegistry->registry('blog_post')->getPostId()) {
+        if ($this->coreRegistry->registry('blog_post')->getId()) {
             return __("Edit Post '%1'", $this->escapeHtml($this->coreRegistry->registry('blog_post')->getTitle()));
         } else {
             return __('New Post');

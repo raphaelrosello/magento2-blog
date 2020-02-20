@@ -61,13 +61,13 @@ class View extends Action
         $resultPage = $this->pageFactory->create();
 
         $resultPage->addHandle('blog_post_view');
-        $resultPage->addPageLayoutHandles(['id' => $post->getPostId()]);
+        $resultPage->addPageLayoutHandles(['id' => $post->getId()]);
 
         $this->_eventManager->dispatch(
             'blog_post_render',
             ['post' => $post, 'controller_action' => $this]
         );
-        
+
 
         if(!$resultPage) {
             $resultForward = $this->forwardFactory->create();

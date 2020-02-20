@@ -80,7 +80,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
             $postData['image'][0]['name'] = $postImage;
             $postData['image'][0]['url'] = $this->getMediaUrl().$postImage;
 
-            $this->loadedData[$post->getPostId()] = $postData;
+            $this->loadedData[$post->getId()] = $postData;
         }
 
         $data = $this->dataPersistor->get('blog_post');
@@ -88,7 +88,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         if (!empty($data)) {
             $post = $this->collection->getNewEmptyItem();
             $post->setData($data);
-            $this->loadedData[$post->getPostId()] = $post->getData();
+            $this->loadedData[$post->getId()] = $post->getData();
             $this->dataPersistor->clear('blog_post');
         }
 

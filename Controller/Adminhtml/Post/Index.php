@@ -5,10 +5,17 @@ namespace Rrosello\Blog\Controller\Adminhtml\Post;
 
 
 use Magento\Backend\App\Action;
+use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\View\Result\PageFactory;
 
-class Index extends Action
+class Index extends Action implements HttpGetActionInterface
 {
+    /**
+     * Authorization level of a basic admin session
+     *
+     * @see _isAllowed()
+     */
+    const ADMIN_RESOURCE = 'Rrosello_Blog::post';
 
     /**
      * @var PageFactory
@@ -40,12 +47,6 @@ class Index extends Action
         $resultPage->getConfig()->getTitle()->prepend('Blog Posts');
 
         return $resultPage;
-    }
-
-    protected function _isAllowed()
-    {
-        return $this->_authorization->isAllowed('Rrosello_Blog::post');
-
     }
 
 }

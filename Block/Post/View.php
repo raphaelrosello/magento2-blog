@@ -50,7 +50,7 @@ class View extends Template implements IdentityInterface
 
     public function getIdentities()
     {
-        return [\Rrosello\Blog\Model\Post::CACHE_TAG . '_' . $this->getPost()->getPostId()];
+        return [\Rrosello\Blog\Model\Post::CACHE_TAG . '_' . $this->getPost()->getId()];
     }
 
     public function getMediaUrl()

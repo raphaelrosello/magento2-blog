@@ -55,7 +55,7 @@ class Router implements RouterInterface
             ->setModuleName('blog')
             ->setControllerName('post')
             ->setActionName('view')
-            ->setParam('post_id', $post->getPostId());
+            ->setParam('post_id', $post->getId());
 
 
         $request->setAlias(Url::REWRITE_REQUEST_PATH_ALIAS, $url_key);
