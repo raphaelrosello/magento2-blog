@@ -1,18 +1,10 @@
 <?php
-/**
- * Copyright 2018 aheadWorks. All rights reserved.
- * See LICENSE.txt for license details.
- */
 
 namespace Rrosello\Blog\Model\Category\Source;
 
 use Magento\Framework\Data\OptionSourceInterface;
 use Rrosello\Blog\Model\ResourceModel\Category\CollectionFactory as CategoryCollectionFactory;
 
-/**
- * Class Categories
- * @package Aheadworks\Blog\Model\Source
- */
 class Categories implements OptionSourceInterface
 {
     /**

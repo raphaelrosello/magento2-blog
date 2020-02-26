@@ -22,10 +22,7 @@ class IsActive implements OptionSourceInterface
 
     public function toOptionArray()
     {
-        $options = [
-            'label' => '',
-            'value' => ''
-        ];
+        $options = [];
 
         $availableOptions = $this->post->getAvailableStatuses();
 
